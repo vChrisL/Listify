@@ -5,7 +5,7 @@ import {BookIcon, MenuIcon} from "../util/Icons.tsx";
  */
 export function Header() {
   return (
-    <header className={"flex flex-row"}>
+    <header className={"flex flex-row h-12"}>
       <button>
         <MenuIcon style={"w-10 h-10 stroke-black"}/>
       </button>
