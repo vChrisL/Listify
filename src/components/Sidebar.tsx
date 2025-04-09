@@ -12,7 +12,7 @@ export function Sidebar() {
   });
 
   return (
-    <aside ref={sidebarRef} className="absolute flex flex-col items-center top-0 left-0 bg-secondary-bg w-3/5 h-screen rounded-r-lg p-2">
+    <aside ref={sidebarRef} className="absolute flex flex-col items-center gap-4 top-0 left-0 bg-secondary-bg w-3/4 h-screen rounded-r-lg p-4">
       <div className={"flex flex-row justify-center items-center gap-2"}>
         <BookIcon style={"w-10 h-10 stroke-black"}/>
         <h1>Listify</h1>
