@@ -1,12 +1,16 @@
+import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {BookIcon, MenuIcon} from "../util/Icons.tsx";
 
 /**
  * Mobile header component.
  */
 export function Header() {
+  const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
+  const setDisplaySidebar = useSidebarStore(state => state.setIsDisplayed);
+
   return (
-    <header className={"flex flex-row h-12"}>
-      <button>
+    <header className={`flex flex-row h-12 ${isDisplaySidebar ? 'invisible' : 'visible'}`}>
+      <button onClick={() => { setDisplaySidebar(true) }}>
         <MenuIcon style={"w-10 h-10 stroke-black"}/>
       </button>
 

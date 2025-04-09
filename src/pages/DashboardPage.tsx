@@ -1,12 +1,17 @@
 import {Header} from "../components/Header.tsx";
+import { Sidebar } from "../components/Sidebar.tsx";
+import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {DashboardIcon} from "../util/Icons.tsx";
 
 /**
  * Dashboard page.
  */
 export function DashboardPage() {
+  const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
+  
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden"}>
+      {isDisplaySidebar && <Sidebar/>}
       <Header/>
 
       <div className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)]"}>
