@@ -40,3 +40,15 @@ export function MenuIcon({style}: IconProps) {
     </svg>
   )
 }
+
+/**
+ * Hamburger menu icon.
+ * @param style Tailwind style classes to be applied. Uses stroke for color.
+ */
+export function AddIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="none" stroke="inherit" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m-7-7h14"></path>
+    </svg>
+  )
+}
