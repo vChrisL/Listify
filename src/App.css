@@ -18,7 +18,7 @@
   --color-text-secondary: #848e98;
 }
 
-@layer components {
+@layer base {
   body {
     @apply bg-background text-text-color
   }
@@ -38,6 +38,10 @@
     hover:brightness-90 hover:cursor-pointer
     active:brightness-80
   }
+}
+
+@layer components {
+
 }
 
 
