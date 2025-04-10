@@ -33,7 +33,9 @@
   }
 
   button {
-    @apply hover:brightness-90 hover:cursor-pointer
+    @apply 
+    hover:brightness-90 hover:cursor-pointer
+    active:brightness-80
   }
 }
 
