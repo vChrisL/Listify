@@ -14,16 +14,31 @@ export function Sidebar() {
   return (
     <aside ref={sidebarRef} className="absolute flex flex-col items-center gap-4 top-0 left-0 bg-secondary-bg w-3/4 h-screen rounded-r-lg p-4">
       <div className={"flex flex-row justify-center items-center gap-2"}>
-        <BookIcon style={"w-10 h-10 stroke-black"}/>
+        <BookIcon style={"w-10 h-10 stroke-text-color"}/>
         <h1>Listify</h1>
       </div>
 
-      <div>
-        <button className="flex flex-ro-w gap-2 bg-tertiary-bg rounded-lg p-2">
+      <div className="w-full">
+        <button className="flex flex-row gap-2 items-center justify-center w-full bg-[#FAA860] rounded-lg p-2 mb-8">
           <DashboardIcon style="w-8 h-8 stroke-text-color"/>
           <h3>Dashboard</h3>
         </button>
-        Lists shortcuts go here
+        
+        <div className="flex flex-col gap-2">
+          <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
+            <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
+            <h3 className="grow text-left truncate">List 1</h3>
+          </button>
+          <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
+            <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
+            <h3 className="grow text-left truncate">My Second List</h3>
+          </button>
+          <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
+            <DashboardIcon style="w-8 h-8 min-w-8 stroke-text-color"/>
+            <h3 className="grow text-left truncate">Another Second Second List</h3>
+          </button>
+        </div>
+        
       </div>
     </aside>
   )
