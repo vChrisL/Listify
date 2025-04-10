@@ -11,13 +11,13 @@ export function Header() {
   return (
     <header className={`flex flex-row h-12 ${isDisplaySidebar ? 'invisible' : 'visible'}`}>
       <button onClick={() => { setDisplaySidebar(true) }}>
-        <MenuIcon style={"w-10 h-10 stroke-black"}/>
+        <MenuIcon style={"w-10 h-10 stroke-text-color"}/>
       </button>
 
       <span className={"w-1/5"}/>
 
       <div className={"flex flex-row justify-center items-center gap-2"}>
-        <BookIcon style={"w-10 h-10 stroke-black"}/>
+        <BookIcon style={"w-10 h-10 stroke-text-color"}/>
         <h1>Listify</h1>
       </div>
     </header>
