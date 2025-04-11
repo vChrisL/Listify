@@ -9,7 +9,7 @@ export function Header() {
   const setDisplaySidebar = useSidebarStore(state => state.setIsDisplayed);
 
   return (
-    <header className={`flex flex-row h-12 ${isDisplaySidebar ? 'invisible' : 'visible'}`}>
+    <header className={`lg:hidden flex flex-row h-12 ${isDisplaySidebar ? 'invisible' : 'visible'}`}>
       <button onClick={() => { setDisplaySidebar(true) }}>
         <MenuIcon style={"w-10 h-10 stroke-text-color"}/>
       </button>
