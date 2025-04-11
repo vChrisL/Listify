@@ -14,12 +14,12 @@ export function Header() {
         <MenuIcon style={"w-10 h-10 stroke-text-color"}/>
       </button>
 
-      <span className={"w-1/5"}/>
-
-      <div className={"flex flex-row justify-center items-center gap-2"}>
+      <div className={"flex flex-row justify-center items-center gap-2 mx-auto"}>
         <BookIcon style={"w-10 h-10 stroke-text-color"}/>
         <h1>Listify</h1>
       </div>
+
+      <span className={"w-10"}/>
     </header>
   )
 }
