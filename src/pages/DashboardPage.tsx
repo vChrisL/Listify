@@ -50,7 +50,7 @@ export function DashboardPage() {
         </div>
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
 
-        <div className={"grid grid-cols-2 gap-4 overflow-y-auto lg:grid-cols-7"}>
+        <div className={"grid grid-cols-2 gap-4 overflow-y-auto w-full xl:grid-cols-7 md:grid-cols-5 sm:grid-cols-3"}>
           <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg"}>
             <AddIcon style={"w-12 h-12 stroke-text-color"}/>
             <h3>New List</h3>
