@@ -3,10 +3,10 @@
 #root {
   height: 100vh;
 
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  padding-bottom: 0;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 1rem; */
+  /* padding-bottom: 0; */
   text-align: center;
 }
 
@@ -14,6 +14,7 @@
   --color-background: #252f39;
   --color-secondary-bg: #1c262f;
   --color-tertiary-bg: #B7B7B7;
+  --color-accent: #16202A;
   --color-text-color: #f3f3f3;
   --color-text-secondary: #848e98;
 }
@@ -41,7 +42,9 @@
 }
 
 @layer components {
-
+  #root {
+    @apply p-4 pb-0 mx-auto lg:p-0 lg:mx-0
+  }
 }
 
 
