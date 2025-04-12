@@ -1,4 +1,5 @@
 import {Header} from "../components/Header.tsx";
+import { ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {AddIcon, BookIcon, DashboardIcon} from "../util/Icons.tsx";
@@ -27,18 +28,9 @@ export function DashboardPage() {
           </button>
           
           <div className="flex flex-col gap-2">
-            <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
-              <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
-              <h3 className="grow text-left truncate">List 1</h3>
-            </button>
-            <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
-              <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
-              <h3 className="grow text-left truncate">My Second List</h3>
-            </button>
-            <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
-              <DashboardIcon style="w-8 h-8 min-w-8 stroke-text-color"/>
-              <h3 className="grow text-left truncate">Another Second Second List</h3>
-            </button>
+            <ListShortcut listObj={{name: "List 1"}}/>
+            <ListShortcut listObj={{name: "My Second List"}}/>
+            <ListShortcut listObj={{name: "Another Second Second List"}}/>
           </div>
         </div>
       </aside>
