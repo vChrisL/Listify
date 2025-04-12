@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { useSidebarStore } from "../stores/MenuStore";
 import { BookIcon, DashboardIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
+import { ListShortcut } from "./List";
+import { tryGetColor } from "../util/util";
 
 export function Sidebar() {
   const setDisplaySidebar = useSidebarStore(state => state.setIsDisplayed);
@@ -25,18 +27,9 @@ export function Sidebar() {
         </button>
         
         <div className="flex flex-col gap-2">
-          <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
-            <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
-            <h3 className="grow text-left truncate">List 1</h3>
-          </button>
-          <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
-            <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
-            <h3 className="grow text-left truncate">My Second List</h3>
-          </button>
-          <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
-            <DashboardIcon style="w-8 h-8 min-w-8 stroke-text-color"/>
-            <h3 className="grow text-left truncate">Another Second Second List</h3>
-          </button>
+          <ListShortcut listObj={{name: "List 1", color: tryGetColor("blue")}}/>
+          <ListShortcut listObj={{name: "My Second List", color: tryGetColor("red")}}/>
+          <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple")}}/>
         </div>
         
       </div>

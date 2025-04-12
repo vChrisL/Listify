@@ -3,6 +3,7 @@ import { ListCard, ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {AddIcon, BookIcon, DashboardIcon} from "../util/Icons.tsx";
+import { tryGetColor } from "../util/util.tsx";
 
 /**
  * Dashboard page.
@@ -28,9 +29,9 @@ export function DashboardPage() {
           </button>
           
           <div className="flex flex-col gap-2">
-            <ListShortcut listObj={{name: "List 1"}}/>
-            <ListShortcut listObj={{name: "My Second List"}}/>
-            <ListShortcut listObj={{name: "Another Second Second List"}}/>
+            <ListShortcut listObj={{name: "List 1", color: tryGetColor("blue")}}/>
+            <ListShortcut listObj={{name: "My Second List", color: tryGetColor("red")}}/>
+            <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple")}}/>
           </div>
         </div>
       </aside>
@@ -50,7 +51,7 @@ export function DashboardPage() {
 
           {
             Array.from({length: 12}, (_, index) =>
-              <ListCard listObj={{name: `List ${index} Name Goes Here`}}/>
+              <ListCard listObj={{name: `List ${index} Name Goes Here`, color: tryGetColor("blue")}}/>
             )
           }
         </div>
