@@ -27,6 +27,9 @@ type ListObject = {
   // items:  ListItem
 };
 
+/**
+ * List shortcut component for sidebar navigation.
+ */
 export function ListShortcut({listObj}: {listObj: ListObject}) {
   return (
     <button className="flex flex-row gap-2 items-center w-full bg-tertiary-bg rounded-lg p-2">
