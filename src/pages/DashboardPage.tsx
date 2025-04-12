@@ -1,5 +1,5 @@
 import {Header} from "../components/Header.tsx";
-import { ListShortcut } from "../components/List.tsx";
+import { ListCard, ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {AddIcon, BookIcon, DashboardIcon} from "../util/Icons.tsx";
@@ -47,15 +47,12 @@ export function DashboardPage() {
             <AddIcon style={"w-12 h-12 stroke-text-color"}/>
             <h3>New List</h3>
           </button>
+
           {
-            Array.from({length: 12}, () =>
-              <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg"}>
-                <DashboardIcon style={"w-12 h-12 stroke-text-color"}/>
-                <h3>List Name Goes Here</h3>
-              </button>
+            Array.from({length: 12}, (_, index) =>
+              <ListCard listObj={{name: `List ${index} Name Goes Here`}}/>
             )
           }
-
         </div>
       </div>
     </main>

@@ -35,3 +35,15 @@ export function ListShortcut({listObj}: {listObj: ListObject}) {
     </button>
   )
 }
+
+/**
+ * List card component.
+ */
+export function ListCard({listObj}: {listObj: ListObject}) {
+  return (
+    <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg"}>
+      <DashboardIcon style={"w-12 h-12 stroke-text-color"}/>
+      <h3>{listObj.name}</h3>
+    </button>
+  )
+}
