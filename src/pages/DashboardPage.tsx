@@ -4,7 +4,7 @@ import { ListCard, ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {AddIcon, BookIcon, DashboardIcon} from "../util/Icons.tsx";
-import { tryGetColor } from "../util/util.tsx";
+import { tryGetColor } from "../util/ColorUtil.tsx";
 
 /**
  * Dashboard page.

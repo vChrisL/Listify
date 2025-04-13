@@ -3,7 +3,7 @@ import { useSidebarStore } from "../stores/MenuStore";
 import { BookIcon, DashboardIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
 import { ListShortcut } from "./List";
-import { tryGetColor } from "../util/util";
+import { tryGetColor } from "../util/ColorUtil.tsx";
 import { motion } from "motion/react";
 
 export function Sidebar() {
