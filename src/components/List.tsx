@@ -1,31 +1,4 @@
-import { ReactNode } from "react";
-import { DashboardIcon } from "../util/Icons";
-
-export const ColorMap: Map<string, string> = new Map([
-  ["blue",    "#688CDA"],
-  ["teal",    "#6BD4DB"],
-  ["green",   "#72C993"],
-  ["purple",  "#A676D0"],
-  ["red",     "#D07676"],
-  ["pink",    "#D076BD"],
-  ["orange",  "#D09976"],
-  ["yellow",  "#DDBC62"],
-]);
-
-type ListItem = {
-  id:     number,
-  title:  string,
-  desc:   string,
-  url?:   string
-};
-
-type ListObject = {
-  color:  string,
-  icon:   ReactNode,
-  // id:     number,
-  name:   string,
-  // items:  ListItem
-};
+import { ListObject } from "../types/ListType"
 
 /**
  * List shortcut component for sidebar navigation.
