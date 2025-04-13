@@ -1,3 +1,4 @@
+import { AnimatePresence } from "motion/react";
 import {Header} from "../components/Header.tsx";
 import { ListCard, ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
@@ -13,7 +14,10 @@ export function DashboardPage() {
   
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
-      {isDisplaySidebar && <Sidebar/>}
+      <AnimatePresence>
+        {isDisplaySidebar && <Sidebar/>}
+      </AnimatePresence>
+
       <Header/>
 
       <aside className="hidden lg:flex flex-col items-center gap-4 w-1/6 p-4 pr-0">
@@ -44,7 +48,7 @@ export function DashboardPage() {
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
 
         <div className={"grid grid-cols-2 gap-4 overflow-y-auto w-full xl:grid-cols-7 md:grid-cols-5 sm:grid-cols-3"}>
-          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg"}>
+          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-[#FAA860] rounded-lg"}>
             <AddIcon style={"w-12 h-12 stroke-text-color"}/>
             <h3>New List</h3>
           </button>

@@ -4,6 +4,7 @@ import { BookIcon, DashboardIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
 import { ListShortcut } from "./List";
 import { tryGetColor } from "../util/util";
+import { motion } from "motion/react";
 
 export function Sidebar() {
   const setDisplaySidebar = useSidebarStore(state => state.setIsDisplayed);
@@ -14,7 +15,18 @@ export function Sidebar() {
   });
 
   return (
-    <aside ref={sidebarRef} className="absolute flex flex-col items-center gap-4 top-0 left-0 bg-secondary-bg w-3/4 h-screen rounded-r-lg p-4">
+    <motion.aside 
+      ref={sidebarRef} 
+      className="absolute flex flex-col items-center gap-4 top-0 left-0 bg-secondary-bg w-3/4 h-screen rounded-r-lg p-4"
+      initial={{x: "-100vw"}}
+      animate={{
+        x: 0,
+        transition: {
+          duration: 0.2
+        }
+      }}
+      exit={{x: "-100vw"}}
+    >
       <div className={"flex flex-row justify-center items-center gap-2"}>
         <BookIcon style={"w-10 h-10 stroke-text-color"}/>
         <h1>Listify</h1>
@@ -33,6 +45,6 @@ export function Sidebar() {
         </div>
         
       </div>
-    </aside>
+    </motion.aside>
   )
 }
