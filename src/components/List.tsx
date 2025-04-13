@@ -21,7 +21,7 @@ type ListItem = {
 
 type ListObject = {
   color:  string,
-  // icon:   ReactNode,
+  icon:   ReactNode,
   // id:     number,
   name:   string,
   // items:  ListItem
@@ -33,7 +33,8 @@ type ListObject = {
 export function ListShortcut({listObj}: {listObj: ListObject}) {
   return (
     <button className="flex flex-row gap-2 items-center w-full rounded-lg p-2" style={{backgroundColor: `${listObj.color}`}}>
-      <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>
+      {/* <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/> */}
+      {listObj.icon}
       <h3 className="grow text-left truncate">{listObj.name}</h3>
     </button>
   )
@@ -45,7 +46,8 @@ export function ListShortcut({listObj}: {listObj: ListObject}) {
 export function ListCard({listObj}: {listObj: ListObject}) {
   return (
     <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg"}>
-      <DashboardIcon style={"w-12 h-12 stroke-text-color"}/>
+      {/* <DashboardIcon style={"w-12 h-12 stroke-text-color"}/> */}
+      {listObj.icon}
       <h3>{listObj.name}</h3>
     </button>
   )

@@ -39,9 +39,9 @@ export function Sidebar() {
         </button>
         
         <div className="flex flex-col gap-2">
-          <ListShortcut listObj={{name: "List 1", color: tryGetColor("blue")}}/>
-          <ListShortcut listObj={{name: "My Second List", color: tryGetColor("red")}}/>
-          <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple")}}/>
+          <ListShortcut listObj={{name: "List 1",                     color: tryGetColor("blue"),   icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
+          <ListShortcut listObj={{name: "My Second List",             color: tryGetColor("red"),    icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
+          <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple"), icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
         </div>
         
       </div>
