@@ -3,7 +3,7 @@ import {Header} from "../components/Header.tsx";
 import { ListCard, ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import {AddIcon, BookIcon, DashboardIcon} from "../util/Icons.tsx";
+import {AddIcon, BookIcon, DashboardIcon, SearchIcon} from "../util/Icons.tsx";
 import { tryGetColor } from "../util/ColorUtil.tsx";
 
 /**
@@ -41,9 +41,16 @@ export function DashboardPage() {
       </aside>
 
       <div className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)] lg:h-full lg:grow lg:mt-4 lg:mr-4 lg:items-start lg:p-8"}>
-        <div className={"flex flex-row gap-2 items-center"}>
-          <DashboardIcon style={"w-8 h-8 stroke-text-color"}/>
-          <h2>Dashboard</h2>
+        <div className={"flex flex-col gap-2 lg:flex-row items-center justify-between w-full"}>
+          <div className="flex flex-row gap-2 items-center">
+            <DashboardIcon style={"w-8 h-8 stroke-text-color"}/>
+            <h2>Dashboard</h2>
+          </div>
+
+          <div className="flex flex-row items-center bg-accent p-1.5 rounded-lg w-full lg:w-fit">
+            <SearchIcon style={"w-6 h-6 fill-text-color"}/>
+            <input type="text" placeholder="Search"/>
+          </div>
         </div>
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
 
