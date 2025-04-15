@@ -18,7 +18,7 @@ export function ListShortcut({listObj}: {listObj: ListObject}) {
  */
 export function ListCard({listObj}: {listObj: ListObject}) {
   return (
-    <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg"}>
+    <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-tertiary-bg rounded-lg w-36 h-52 lg:w-40"}>
       {/* <DashboardIcon style={"w-12 h-12 stroke-text-color"}/> */}
       {listObj.icon}
       <h3>{listObj.name}</h3>

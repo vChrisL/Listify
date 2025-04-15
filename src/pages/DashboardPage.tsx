@@ -49,13 +49,13 @@ export function DashboardPage() {
 
           <div className="flex flex-row items-center bg-accent p-1.5 rounded-lg w-full lg:w-fit">
             <SearchIcon style={"w-6 h-6 fill-text-color"}/>
-            <input type="text" placeholder="Search"/>
+            <input type="text" placeholder="Search" className="pl-1"/>
           </div>
         </div>
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
 
-        <div className={"grid grid-cols-2 gap-4 overflow-y-auto w-full xl:grid-cols-7 md:grid-cols-5 sm:grid-cols-3"}>
-          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-[#FAA860] rounded-lg"}>
+        <div className={"flex flex-row flex-wrap gap-4 overflow-y-auto w-full xl:grid-cols-7 md:grid-cols-5 sm:grid-cols-3"}>
+          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-[#FAA860] rounded-lg w-36 h-52 lg:w-40"}>
             <AddIcon style={"w-12 h-12 stroke-text-color"}/>
             <h3>New List</h3>
           </button>
