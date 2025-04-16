@@ -33,7 +33,7 @@ export function Sidebar() {
       </div>
 
       <div className="w-full">
-        <button className="flex flex-row gap-2 items-center justify-center w-full bg-[#FAA860] rounded-lg p-2 mb-8">
+        <button className="flex flex-row gap-2 items-center justify-center w-full bg-secondary-accent rounded-lg p-2 mb-8">
           <DashboardIcon style="w-8 h-8 stroke-text-color"/>
           <h3>Dashboard</h3>
         </button>

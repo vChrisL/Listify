@@ -27,7 +27,7 @@ export function DashboardPage() {
         </div>
 
         <div className="w-full">
-          <button className="flex flex-row gap-2 items-center justify-center w-full bg-[#FAA860] rounded-lg p-2 mb-8">
+          <button className="flex flex-row gap-2 items-center justify-center w-full bg-secondary-accent rounded-lg p-2 mb-8">
             <DashboardIcon style="w-8 h-8 stroke-text-color"/>
             <h3>Dashboard</h3>
           </button>
@@ -55,7 +55,7 @@ export function DashboardPage() {
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
 
         <div className={"flex flex-row flex-wrap gap-4 overflow-y-auto w-full xl:grid-cols-7 md:grid-cols-5 sm:grid-cols-3"}>
-          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-[#FAA860] rounded-lg w-36 h-52 lg:w-40"}>
+          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-secondary-accent rounded-lg w-36 h-52 lg:w-40"}>
             <AddIcon style={"w-12 h-12 stroke-text-color"}/>
             <h3>New List</h3>
           </button>
