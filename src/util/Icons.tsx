@@ -64,3 +64,39 @@ export function SearchIcon({style}: IconProps) {
     </svg>
   )
 }
+
+/**
+ * Title icon.
+ * @param style Tailwind style classes to be applied. Uses fill for color.
+ */
+export function TitleIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="inherit" d="M11.385 19V6.25H6.019V5H18v1.25h-5.365V19z"></path>
+    </svg>
+  )
+}
+
+/**
+ * Image icon.
+ * @param style Tailwind style classes to be applied. Uses fill for color.
+ */
+export function ImageIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="inherit" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zm1-2h12l-3.75-5l-3 4L9 13zm-1 2V5z"></path>
+    </svg>
+  )
+}
+
+/**
+ * Paint Bucket icon.
+ * @param style Tailwind style classes to be applied. Uses fill for color.
+ */
+export function PaintBucketIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="inherit" d="M20 14c-.092.064-2 2.083-2 3.5c0 1.494.949 2.448 2 2.5c.906.044 2-.891 2-2.5c0-1.5-1.908-3.436-2-3.5M9.586 20c.378.378.88.586 1.414.586s1.036-.208 1.414-.586l7-7l-.707-.707L11 4.586L8.707 2.293L7.293 3.707L9.586 6L4 11.586c-.378.378-.586.88-.586 1.414s.208 1.036.586 1.414zM11 7.414L16.586 13H5.414z"></path>
+    </svg>
+  )
+}
