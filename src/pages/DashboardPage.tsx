@@ -5,6 +5,7 @@ import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {AddIcon, BookIcon, DashboardIcon, SearchIcon} from "../util/Icons.tsx";
 import { tryGetColor } from "../util/ColorUtil.tsx";
+import { Link } from "react-router-dom";
 
 /**
  * Dashboard page.
@@ -55,10 +56,12 @@ export function DashboardPage() {
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
 
         <div className={"flex flex-row flex-wrap gap-4 overflow-y-auto w-full xl:grid-cols-7 md:grid-cols-5 sm:grid-cols-3"}>
-          <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-secondary-accent rounded-lg w-36 h-52 lg:w-40"}>
-            <AddIcon style={"w-12 h-12 stroke-text-color"}/>
-            <h3>New List</h3>
-          </button>
+          <Link to={"/newList"}>
+            <button className={"flex flex-col gap-2 items-center justify-center py-12 px-2 bg-secondary-accent rounded-lg w-36 h-52 lg:w-40"}>
+              <AddIcon style={"w-12 h-12 stroke-text-color"}/>
+              <h3>New List</h3>
+            </button>
+          </Link>
 
           {
             Array.from({length: 12}, (_, index) =>
