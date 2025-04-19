@@ -1,10 +1,11 @@
 import { AnimatePresence } from "motion/react";
 import {Header} from "../components/Header.tsx";
-import { ListCard, ListShortcut } from "../components/List.tsx";
+import { ListShortcut } from "../components/List.tsx";
 import { Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import {AddIcon, BookIcon, DashboardIcon, ImageIcon, PaintBucketIcon, SearchIcon, TitleIcon} from "../util/Icons.tsx";
-import { tryGetColor } from "../util/ColorUtil.tsx";
+import { BookIcon, DashboardIcon, ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
+import { ColorMap, tryGetColor } from "../util/ColorUtil.tsx";
+import { ListIcons } from "../util/ListUtil.tsx";
 
 /**
  * Dashboard page.
@@ -60,11 +61,11 @@ export function NewListPage() {
             <h3>Icon</h3>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-2 justify-center bg-accent py-4 rounded-lg">
+          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 pr-0 rounded-lg">
             {
-              Array.from({length: 12}, (_, index) =>
-                <button className="bg-background p-1 rounded-lg">
-                  <ImageIcon style="w-8 h-8 fill-text-color"/>
+              ListIcons.map((icon, index) => 
+                <button key={index} className="bg-background p-1 rounded-lg">
+                  {icon} 
                 </button>
               )
             }
@@ -77,12 +78,10 @@ export function NewListPage() {
             <h3>Color</h3>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-2 justify-center bg-accent py-4 rounded-lg">
+          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 pr-0 rounded-lg">
             {
-              Array.from({length: 12}, (_, index) =>
-                <button className="bg-background p-1 rounded-lg">
-                  <ImageIcon style="w-8 h-8 fill-none"/>
-                </button>
+              Array.from(ColorMap.entries()).map(([k, v]) =>
+                <button key={k} className="p-1 rounded-lg w-10 h-10 lg:w-12 lg:h-12" style={{backgroundColor: v}}/>
               )
             }
           </div>
