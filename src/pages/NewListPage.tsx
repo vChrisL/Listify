@@ -5,7 +5,7 @@ import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { BookIcon, DashboardIcon, ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
 import { ColorMap, tryGetColor } from "../util/ColorUtil.tsx";
-import { ListIcons } from "../util/ListUtil.tsx";
+import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link } from "react-router-dom";
 
 /**
@@ -64,7 +64,7 @@ export function NewListPage() {
           <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 pr-0 rounded-lg">
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
-                <button key={k} className="p-1 rounded-lg w-10 h-10 lg:w-12 lg:h-12" style={{backgroundColor: v}}/>
+                <button key={k} className="p-1 rounded-lg" style={{backgroundColor: v}}><div className="w-8 h-8 lg:w-12 lg:h-12"/></button>
               )
             }
           </div>
