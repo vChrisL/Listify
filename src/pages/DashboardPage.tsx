@@ -1,7 +1,7 @@
 import { AnimatePresence } from "motion/react";
 import {Header} from "../components/Header.tsx";
 import { ListCard, ListShortcut } from "../components/List.tsx";
-import { Sidebar } from "../components/Sidebar.tsx";
+import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import {AddIcon, BookIcon, DashboardIcon, SearchIcon} from "../util/Icons.tsx";
 import { tryGetColor } from "../util/ColorUtil.tsx";
@@ -21,27 +21,7 @@ export function DashboardPage() {
 
       <Header/>
 
-      <aside className="hidden lg:flex flex-col items-center gap-4 w-1/6 p-4 pr-0">
-        <div className={"flex flex-row justify-center items-center gap-2"}>
-          <BookIcon style={"w-10 h-10 stroke-text-color"}/>
-          <h1>Listify</h1>
-        </div>
-
-        <div className="w-full">
-          <Link to={"/"}>
-            <button className="flex flex-row gap-2 items-center justify-center w-full bg-secondary-accent rounded-lg p-2 mb-8">
-              <DashboardIcon style="w-8 h-8 stroke-text-color"/>
-              <h3>Dashboard</h3>
-            </button>
-          </Link>
-          
-          <div className="flex flex-col gap-2">
-            <ListShortcut listObj={{name: "List 1",                     color: tryGetColor("blue"),   icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-            <ListShortcut listObj={{name: "My Second List",             color: tryGetColor("red"),    icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-            <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple"), icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-          </div>
-        </div>
-      </aside>
+      <DesktopSidebar/>
 
       <div className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)] lg:h-full lg:grow lg:mt-4 lg:mr-4 lg:items-start lg:p-8"}>
         <div className={"flex flex-col gap-2 lg:flex-row items-center justify-between w-full"}>
