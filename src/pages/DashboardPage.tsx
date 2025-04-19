@@ -28,10 +28,12 @@ export function DashboardPage() {
         </div>
 
         <div className="w-full">
-          <button className="flex flex-row gap-2 items-center justify-center w-full bg-secondary-accent rounded-lg p-2 mb-8">
-            <DashboardIcon style="w-8 h-8 stroke-text-color"/>
-            <h3>Dashboard</h3>
-          </button>
+          <Link to={"/"}>
+            <button className="flex flex-row gap-2 items-center justify-center w-full bg-secondary-accent rounded-lg p-2 mb-8">
+              <DashboardIcon style="w-8 h-8 stroke-text-color"/>
+              <h3>Dashboard</h3>
+            </button>
+          </Link>
           
           <div className="flex flex-col gap-2">
             <ListShortcut listObj={{name: "List 1",                     color: tryGetColor("blue"),   icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
