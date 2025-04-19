@@ -9,7 +9,7 @@ import { ListIcons } from "../util/ListUtil.tsx";
 import { Link } from "react-router-dom";
 
 /**
- * Dashboard page.
+ * New List Page.
  */
 export function NewListPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);

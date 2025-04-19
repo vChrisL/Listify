@@ -7,6 +7,9 @@ import { tryGetColor } from "../util/ColorUtil.tsx";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
+/**
+ * Mobile sidebar component.
+ */
 export function Sidebar() {
   const setDisplaySidebar = useSidebarStore(state => state.setIsDisplayed);
 
@@ -52,6 +55,9 @@ export function Sidebar() {
   )
 }
 
+/**
+ * Desktop sidebar component.
+ */
 export function DesktopSidebar() {
   return (
     <aside className="hidden lg:flex flex-col items-center gap-4 w-1/6 p-4 pr-0">
