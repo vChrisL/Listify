@@ -69,6 +69,13 @@ export function NewListPage() {
             }
           </div>
         </div>
+
+        <div className="flex flex-row gap-4 justify-end w-full">  
+          <Link to={"/"}>
+            <button className="p-2 font-semibold">Discard</button>
+          </Link>
+          <button className="p-2 font-semibold">Create</button>
+        </div>
       </div>
     </main>
   )
