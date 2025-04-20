@@ -1,9 +1,9 @@
 import { AnimatePresence } from "motion/react";
-import {Header} from "../components/Header.tsx";
-import { ListCard, ListShortcut } from "../components/List.tsx";
+import { Header } from "../components/Header.tsx";
+import { ListCard } from "../components/List.tsx";
 import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import {AddIcon, BookIcon, DashboardIcon, SearchIcon} from "../util/Icons.tsx";
+import { AddIcon, DashboardIcon, SearchIcon } from "../util/Icons.tsx";
 import { tryGetColor } from "../util/ColorUtil.tsx";
 import { Link } from "react-router-dom";
 

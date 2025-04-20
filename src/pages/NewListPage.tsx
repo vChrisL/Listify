@@ -1,10 +1,9 @@
 import { AnimatePresence } from "motion/react";
-import {Header} from "../components/Header.tsx";
-import { ListShortcut } from "../components/List.tsx";
+import { Header } from "../components/Header.tsx";
 import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import { BookIcon, DashboardIcon, ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
-import { ColorMap, tryGetColor } from "../util/ColorUtil.tsx";
+import { ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
+import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link } from "react-router-dom";
 
