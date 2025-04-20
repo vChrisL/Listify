@@ -44,7 +44,7 @@ export function NewListPage() {
             <h3>Icon</h3>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 pr-0 rounded-lg">
+          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
             {
               ListIcons.map((icon, index) => 
                 <button key={index} className="bg-background p-1 rounded-lg">
@@ -61,7 +61,7 @@ export function NewListPage() {
             <h3>Color</h3>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 pr-0 rounded-lg">
+          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
                 <button key={k} className="p-1 rounded-lg" style={{backgroundColor: v}}><div className="w-8 h-8 lg:w-12 lg:h-12"/></button>
