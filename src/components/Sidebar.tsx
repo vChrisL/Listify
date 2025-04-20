@@ -21,7 +21,7 @@ export function Sidebar() {
   return (
     <motion.aside 
       ref={sidebarRef} 
-      className="absolute flex flex-col items-center gap-4 top-0 left-0 bg-secondary-bg w-3/4 h-screen rounded-r-lg p-4"
+      className="absolute flex flex-col items-center gap-4 top-0 left-0 bg-secondary-bg w-64 h-screen rounded-r-lg p-4"
       initial={{x: "-100vw"}}
       animate={{
         x: 0,
