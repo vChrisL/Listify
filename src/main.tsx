@@ -10,7 +10,7 @@ import { NewListPage } from './pages/NewListPage.tsx';
 const router = createBrowserRouter([
   {path: "/", element: <App/>},
   {path: "/dashboard", element: <DashboardPage/>},
-  {path: "/newList", element: <NewListPage/>},
+  {path: "/new-list", element: <NewListPage/>},
   {path: "*", element: <ErrorPage/>},
 ]);
 
