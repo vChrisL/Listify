@@ -28,7 +28,7 @@ export function NewListPage() {
 
       <DesktopSidebar/>
 
-      <div className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)] lg:h-full lg:grow lg:mt-4 lg:mr-4 lg:items-start lg:p-8"}>
+      <div className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)] lg:h-full lg:grow lg:mt-4 lg:mr-4 lg:items-start lg:p-8 overflow-y-auto"}>
         <div className="flex flex-row gap-2 items-center">
           <h2>New List</h2>
         </div>
@@ -51,7 +51,7 @@ export function NewListPage() {
           <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
             {
               ListIcons.map((icon, index) => 
-                <Swatch key={index} style="bg-background p-1 rounded-lg border-2" selected={selectedIcon == icon ? true : false} onClickEvt={() => setSelectedIcon(icon)}>{icon}</Swatch>
+                <Swatch key={index} style="bg-background p-1 rounded-lg border-2 lg:p-0.5" selected={selectedIcon == icon ? true : false} onClickEvt={() => setSelectedIcon(icon)}>{icon}</Swatch>
               )
             }
           </div>
@@ -66,7 +66,7 @@ export function NewListPage() {
           <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
-                <Swatch key={k} style="p-1 rounded-lg border-2" bgColor={v} selected={selectedColor == k ? true : false} onClickEvt={() => setSelectedColor(k)}><div className="w-8 h-8 lg:w-12 lg:h-12"/></Swatch>
+                <Swatch key={k} style="p-1 rounded-lg border-2 lg:p-0.5" bgColor={v} selected={selectedColor == k ? true : false} onClickEvt={() => setSelectedColor(k)}><div className="w-8 h-8 lg:w-12 lg:h-12"/></Swatch>
               )
             }
           </div>
