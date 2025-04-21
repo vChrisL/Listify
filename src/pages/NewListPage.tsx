@@ -6,6 +6,8 @@ import { ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
 import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link } from "react-router-dom";
+import { Swatch } from "../components/Swatch.tsx";
+import { ReactNode, useState } from "react";
 
 /**
  * New List Page.
@@ -13,6 +15,9 @@ import { Link } from "react-router-dom";
 export function NewListPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
   
+  const [selectedIcon, setSelectedIcon] = useState<ReactNode>();
+  const [selectedColor, setSelectedColor] = useState<ReactNode>();
+
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
       <AnimatePresence>
@@ -46,9 +51,7 @@ export function NewListPage() {
           <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
             {
               ListIcons.map((icon, index) => 
-                <button key={index} className="bg-background p-1 rounded-lg">
-                  {icon} 
-                </button>
+                <Swatch key={index} style="bg-background p-1 rounded-lg border-2" selected={selectedIcon == icon ? true : false} onClickEvt={() => setSelectedIcon(icon)}>{icon}</Swatch>
               )
             }
           </div>
@@ -63,7 +66,7 @@ export function NewListPage() {
           <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
-                <button key={k} className="p-1 rounded-lg" style={{backgroundColor: v}}><div className="w-8 h-8 lg:w-12 lg:h-12"/></button>
+                <Swatch key={k} style="p-1 rounded-lg border-2" bgColor={v} selected={selectedColor == k ? true : false} onClickEvt={() => setSelectedColor(k)}><div className="w-8 h-8 lg:w-12 lg:h-12"/></Swatch>
               )
             }
           </div>
