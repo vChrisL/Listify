@@ -37,7 +37,7 @@ export function NewListPage() {
 
     setErrors(tmpErrors);
 
-    return !(errors.length > 0)
+    return !(tmpErrors.length > 0)
   }
 
   /**
@@ -55,6 +55,7 @@ export function NewListPage() {
       color: selectedColor
     };
 
+    addList(newList);
     // redirect user to the new list's page on successful submission
   }
 
