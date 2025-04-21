@@ -8,17 +8,47 @@ import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
 import { ReactNode, useState } from "react";
+import { ListObject } from "../types/ListType.tsx";
+import { useListStore } from "../stores/ListStore.tsx";
 
 /**
  * New List Page.
  */
 export function NewListPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
-  
+
   const addList = useListStore(state => state.addList);
   const [listTitle, setListTitle] = useState<string>("");
   const [selectedIcon, setSelectedIcon] = useState<ReactNode>();
-  const [selectedColor, setSelectedColor] = useState<ReactNode>();
+  const [selectedColor, setSelectedColor] = useState<string>("");
+
+  const [errors, setErrors] = useState<string[]>([]);
+
+  function isValidList() {
+    let tmpErrors = [];
+
+    if (listTitle.trim() === "" || listTitle.trim() === null || listTitle.trim() === undefined) tmpErrors.push("title");
+    if (selectedIcon === null || selectedIcon === undefined) tmpErrors.push("icon");
+    if (selectedColor === "" || selectedColor === null || selectedColor === undefined) tmpErrors.push("color");
+
+    setErrors(tmpErrors);
+
+    return !(errors.length > 0)
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!isValidList()) return;
+
+    let newList: ListObject = {
+      name: listTitle,
+      icon: selectedIcon,
+      color: selectedColor
+    };
+
+    // redirect user to the new list's page on successful submission
+  }
 
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
@@ -44,7 +74,7 @@ export function NewListPage() {
             <h3>Title</h3>
           </div>
 
-          <input className="w-full bg-accent p-2 rounded-lg" type="text" placeholder="List Title"/>
+          <input className={`w-full bg-accent p-2 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} type="text" placeholder="List Title" onChange={(e) => { setListTitle(e.target.value) }}/>
         </div>
 
         <div className="w-full">
@@ -53,7 +83,7 @@ export function NewListPage() {
             <h3>Icon</h3>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
+          <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg border-1 border-accent ${errors.includes("icon") ? 'border-red-400' : ''}`}>
             {
               ListIcons.map((icon, index) => 
                 <Swatch key={index} style="bg-background p-1 rounded-lg border-2 lg:p-0.5" selected={selectedIcon == icon ? true : false} onClickEvt={() => setSelectedIcon(icon)}>{icon}</Swatch>
@@ -68,7 +98,7 @@ export function NewListPage() {
             <h3>Color</h3>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg">
+          <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg border-1 border-accent ${errors.includes("color") ? 'border-red-400' : ''}`}>
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
                 <Swatch key={k} style="p-1 rounded-lg border-2 lg:p-0.5" bgColor={v} selected={selectedColor == k ? true : false} onClickEvt={() => setSelectedColor(k)}><div className="w-8 h-8 lg:w-12 lg:h-12"/></Swatch>
