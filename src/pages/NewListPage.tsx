@@ -15,6 +15,8 @@ import { ReactNode, useState } from "react";
 export function NewListPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
   
+  const addList = useListStore(state => state.addList);
+  const [listTitle, setListTitle] = useState<string>("");
   const [selectedIcon, setSelectedIcon] = useState<ReactNode>();
   const [selectedColor, setSelectedColor] = useState<ReactNode>();
 
@@ -28,7 +30,10 @@ export function NewListPage() {
 
       <DesktopSidebar/>
 
-      <div className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)] lg:h-full lg:grow lg:mt-4 lg:mr-4 lg:items-start lg:p-8 overflow-y-auto"}>
+      <form 
+        className={"flex flex-col gap-4 items-center p-4 rounded-t-lg bg-secondary-bg h-[calc(100%-4rem)] lg:h-full lg:grow lg:mt-4 lg:mr-4 lg:items-start lg:p-8 overflow-y-auto"}
+        onSubmit={(e) => { handleSubmit(e) }}
+      >
         <div className="flex flex-row gap-2 items-center">
           <h2>New List</h2>
         </div>
@@ -76,9 +81,9 @@ export function NewListPage() {
           <Link to={"/"}>
             <button className="p-2 font-semibold">Discard</button>
           </Link>
-          <button className="p-2 font-semibold">Create</button>
+          <button className="p-2 font-semibold" type="submit">Create</button>
         </div>
-      </div>
+      </form>
     </main>
   )
 }
