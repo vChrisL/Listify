@@ -24,6 +24,10 @@ export function NewListPage() {
 
   const [errors, setErrors] = useState<string[]>([]);
 
+  /**
+   * Validate if form fields are valid.
+   * @returns Returns true if the fields are valid.
+   */
   function isValidList() {
     let tmpErrors = [];
 
@@ -36,6 +40,10 @@ export function NewListPage() {
     return !(errors.length > 0)
   }
 
+  /**
+   * Handles new list form submission.
+   * @param e Form event
+   */
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
