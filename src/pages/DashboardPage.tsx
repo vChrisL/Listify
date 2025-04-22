@@ -6,12 +6,14 @@ import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { AddIcon, DashboardIcon, SearchIcon } from "../util/Icons.tsx";
 import { tryGetColor } from "../util/ColorUtil.tsx";
 import { Link } from "react-router-dom";
+import { useListStore } from "../stores/ListStore.tsx";
 
 /**
  * Dashboard page.
  */
 export function DashboardPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
+  const lists = useListStore(state => state.lists);
   
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
@@ -48,6 +50,11 @@ export function DashboardPage() {
           {
             Array.from({length: 12}, (_, index) =>
               <ListCard listObj={{name: `List ${index} Name Goes Here`, color: tryGetColor("blue"), icon: <DashboardIcon style="w-12 h-12 stroke-text-color"/>}}/>
+            )
+          }
+          {
+            lists.map((list, index) => 
+              <ListCard key={index} listObj={{name: list.name, color: tryGetColor(list.color), icon: list.icon}}/>
             )
           }
         </div>
