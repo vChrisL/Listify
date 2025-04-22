@@ -8,8 +8,10 @@ type SwatchProps = {
   onClickEvt: () => void
 };
 
-export function Swatch({children, style, bgColor, selected, onClickEvt}: SwatchProps) {
+export function Swatch({children, style, bgColor, selected, onClickEvt}: SwatchProps) {  
   return (
-    <button type="button" onClick={onClickEvt} className={`${style} ${selected ? 'border-green-300' : 'border-transparent'}`} style={{backgroundColor: bgColor}}>{children}</button>
+    <button type="button" onClick={onClickEvt} className={`${style} ${selected ? 'border-green-300' : 'border-transparent'}`} style={{backgroundColor: bgColor}}>
+      {children}
+    </button>
   )
 }
