@@ -5,7 +5,7 @@ import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
 import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
 import { ReactNode, useState } from "react";
 import { ListObject } from "../types/ListType.tsx";
@@ -15,10 +15,16 @@ import { isValidList } from "../util/Validation.tsx";
 /**
  * Edit List Page.
  */
-export function EditListPage({list}: {list: ListObject}) {
+export function EditListPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
 
-  const addList = useListStore(state => state.addList);
+  const {listid} = useParams();
+  if (listid === undefined) return <Navigate replace to="*"/>;
+  
+  const list = useListStore(state => state.lists).find(obj => obj.id === parseInt(listid))
+  if(list === undefined) return <Navigate replace to="/*"/>;
+
+
   const [listTitle, setListTitle] = useState<string>(list.name);
   const [selectedIcon, setSelectedIcon] = useState<ReactNode>(list.icon);
   const [selectedColor, setSelectedColor] = useState<string>(list.color);
