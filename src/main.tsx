@@ -9,11 +9,27 @@ import { NewListPage } from './pages/NewListPage.tsx';
 const router = createBrowserRouter([
   {path: "/", element: <App/>},
   {path: "/new-list", element: <NewListPage/>},
+  {
+    path: "/list", 
+    element: <div>List page</div>,
+    children: [
+      {
+        path: "delete",
+        element: <div>Delete list page</div>
+      },
+      {
+        path: "edit",
+        element: <div>Edit list page</div>
+      }
+    ]
+  },
+
   {path: "*", element: <ErrorPage/>},
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    {/* <RouterProvider router={router}/> */}
+    <App></App>
   </StrictMode>,
 )
