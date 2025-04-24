@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 type ListItem = {
-  id:     number,
+  id:     string,
   title:  string,
   desc:   string,
   url?:   string
@@ -10,7 +10,7 @@ type ListItem = {
 export type ListObject = {
   color:  string,
   icon:   ReactNode,
-  // id:     number,
+  id:     string,
   name:   string,
   // items:  ListItem
 };

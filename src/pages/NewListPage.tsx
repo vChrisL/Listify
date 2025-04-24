@@ -11,6 +11,7 @@ import { ReactNode, useState } from "react";
 import { ListObject } from "../types/ListType.tsx";
 import { useListStore } from "../stores/ListStore.tsx";
 import { isValidList } from "../util/Validation.tsx";
+import { nanoid } from "nanoid";
 
 /**
  * New List Page.
@@ -38,7 +39,8 @@ export function NewListPage() {
     let newList: ListObject = {
       name: listTitle,
       icon: selectedIcon,
-      color: selectedColor
+      color: selectedColor,
+      id: nanoid()
     };
 
     addList(newList);

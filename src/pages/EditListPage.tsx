@@ -21,7 +21,7 @@ export function EditListPage() {
   const {listid} = useParams();
   if (listid === undefined) return <Navigate replace to="*"/>;
   
-  const list = useListStore(state => state.lists).find(obj => obj.id === parseInt(listid))
+  const list = useListStore(state => state.lists).find(obj => obj.id === listid)
   if(list === undefined) return <Navigate replace to="/*"/>;
 
 
