@@ -47,14 +47,14 @@ export function DashboardPage() {
             </button>
           </Link>
 
-          {
+          {/* {
             Array.from({length: 12}, (_, index) =>
-              <ListCard listObj={{name: `List ${index} Name Goes Here`, color: tryGetColor("blue"), icon: <DashboardIcon style="w-12 h-12 stroke-text-color"/>}}/>
+              <ListCard listObj={{name: `List ${index} Name Goes Here`, color: tryGetColor("blue"), icon: <DashboardIcon style="w-12 h-12 stroke-text-color"/>, id:index}}/>
             )
-          }
+          } */}
           {
             lists.map((list, index) => 
-              <ListCard key={index} listObj={{name: list.name, color: tryGetColor(list.color), icon: list.icon}}/>
+              <ListCard key={index} listObj={{name: list.name, color: tryGetColor(list.color), icon: list.icon, id:index}}/>
             )
           }
         </div>
