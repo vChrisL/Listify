@@ -10,6 +10,7 @@ import { Swatch } from "../components/Swatch.tsx";
 import { ReactNode, useState } from "react";
 import { ListObject } from "../types/ListType.tsx";
 import { useListStore } from "../stores/ListStore.tsx";
+import { isValidList } from "../util/Validation.tsx";
 
 /**
  * Edit List Page.
@@ -24,22 +25,7 @@ export function EditListPage({list}: {list: ListObject}) {
 
   const [errors, setErrors] = useState<string[]>([]);
 
-  /**
-   * Validate if form fields are valid.
-   * @returns Returns true if the fields are valid.
-   */
-  function isValidList() {
-    let tmpErrors = [];
-
-    if (listTitle.trim() === "" || listTitle.trim() === null || listTitle.trim() === undefined) tmpErrors.push("title");
-    if (selectedIcon === null || selectedIcon === undefined) tmpErrors.push("icon");
-    if (selectedColor === "" || selectedColor === null || selectedColor === undefined) tmpErrors.push("color");
-
-    setErrors(tmpErrors);
-
-    return !(tmpErrors.length > 0)
-  }
-
+  
   /**
    * Handles new list form submission.
    * @param e Form event
@@ -47,7 +33,7 @@ export function EditListPage({list}: {list: ListObject}) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (!isValidList()) return;
+    if (!isValidList(listTitle, selectedIcon, selectedColor, setErrors)) return;
 
     // modify list
     // redirect user to the list's page on successful submission
