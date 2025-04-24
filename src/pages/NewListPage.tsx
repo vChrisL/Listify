@@ -5,7 +5,7 @@ import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
 import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
 import { ReactNode, useState } from "react";
 import { ListObject } from "../types/ListType.tsx";
@@ -26,6 +26,7 @@ export function NewListPage() {
 
   const [errors, setErrors] = useState<string[]>([]);
 
+  const navigate = useNavigate();
 
   /**
    * Handles new list form submission.
@@ -44,7 +45,7 @@ export function NewListPage() {
     };
 
     addList(newList);
-    // redirect user to the new list's page on successful submission
+    navigate(`/list/${newList.id}`)
   }
 
   return (
