@@ -17,15 +17,12 @@ function App() {
           <Route path="/new-list" element={<NewListPage></NewListPage>}/>
           <Route path="*" element={<ErrorPage></ErrorPage>}/>
 
-          {
-            lists.map(list => 
-              <Route path="/list/:listid">
-                <Route index element={<div>List: {list.name}</div>}></Route>
-                <Route path="edit" element={<EditListPage list={list}/>}/>
-                <Route path="delete" element={<div>Delete list: {list.name}</div>}/>
-              </Route>
-            )
-          }
+          <Route path="/list/:listid">
+            <Route index element={<div>List</div>}></Route>
+            <Route path="edit" element={<EditListPage/>}/>
+            <Route path="delete" element={<div>Delete list</div>}/>
+          </Route>
+
         </Routes>
       </BrowserRouter>
 
