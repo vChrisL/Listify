@@ -84,14 +84,14 @@ export function EditListPage() {
 
           <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg border-1 border-accent ${errors.includes("icon") ? 'border-red-400' : ''}`}>
             {
-              ListIcons.map((icon, index) => 
+              Array.from(ListIcons.entries()).map(([k, v]) =>
                 <Swatch 
-                  key={index} 
+                  key={k} 
                   style="bg-background p-1 rounded-lg border-2 lg:p-0.5" 
-                  selected={selectedIcon == icon ? true : false} 
-                  onClickEvt={() => setSelectedIcon(icon)}
+                  selected={selectedIcon == k ? true : false} 
+                  onClickEvt={() => setSelectedIcon(k)}
                 >
-                  {icon}
+                  {v.swatchIcon}
                 </Swatch>
               )
             }

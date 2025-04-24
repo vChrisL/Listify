@@ -9,7 +9,7 @@ type ListItem = {
 
 export type ListObject = {
   color:  string,
-  icon:   ReactNode,
+  icon:   string,
   id:     string,
   name:   string,
   // items:  ListItem
