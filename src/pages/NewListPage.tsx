@@ -63,6 +63,8 @@ export function NewListPage() {
           <h2>New List</h2>
         </div>
 
+        <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
+
         <div className="w-full">
           <div className="flex flex-row items-center gap-1">
             <TitleIcon style="w-6 h-6 fill-text-color"/>
