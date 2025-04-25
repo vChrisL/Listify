@@ -5,6 +5,7 @@ import { NewListPage } from './pages/NewListPage.tsx';
 import { useListStore } from './stores/ListStore.tsx';
 import { ErrorPage } from './pages/ErrorPage.tsx';
 import { EditListPage } from './pages/EditListPage.tsx';
+import { ListItemsPage } from './pages/ListItemsPage.tsx';
 
 function App() {
   const lists = useListStore(state => state.lists);
@@ -18,7 +19,7 @@ function App() {
           <Route path="*" element={<ErrorPage></ErrorPage>}/>
 
           <Route path="/list/:listid">
-            <Route index element={<div>List</div>}></Route>
+            <Route index element={<ListItemsPage/>}></Route>
             <Route path="edit" element={<EditListPage/>}/>
             <Route path="delete" element={<div>Delete list</div>}/>
           </Route>
