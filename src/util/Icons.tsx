@@ -101,6 +101,45 @@ export function PaintBucketIcon({style}: IconProps) {
   )
 }
 
+/**
+ * Edit icon.
+ * @param style Tailwind style classes to be applied. Uses stroke for color.
+ */
+export function EditIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <g fill="none" stroke="inherit" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}>
+        <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+        <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path>
+      </g>
+    </svg>
+  )
+}
+
+/**
+ * Sort icon.
+ * @param style Tailwind style classes to be applied. Uses stroke for color.
+ */
+export function SortIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="none" stroke="inherit" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 20V10m0 10l-3-3m3 3l3-3m5-13v10m0-10l3 3m-3-3l-3 3"></path>
+    </svg>
+  )
+}
+
+/**
+ * Plus icon.
+ * @param style Tailwind style classes to be applied. Uses stroke for color.
+ */
+export function PlusIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="none" stroke="inherit" strokeLinecap="round" strokeWidth={2} d="M12 20v-8m0 0V4m0 8h8m-8 0H4"></path>
+    </svg>
+  )
+}
+
 
 //////////////////////////// LIST ICONS BELOW ////////////////////////////
 
