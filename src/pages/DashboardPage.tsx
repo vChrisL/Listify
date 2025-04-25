@@ -54,7 +54,7 @@ export function DashboardPage() {
           } */}
           {
             lists.map((list, index) => 
-              <ListCard key={index} listObj={{name: list.name, color: tryGetColor(list.color), icon: list.icon, id:list.id}}/>
+              <ListCard key={index} listObj={list}/>
             )
           }
         </div>
