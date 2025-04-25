@@ -63,6 +63,8 @@ export function EditListPage() {
           <h2>Editing {listTitle}</h2>
         </div>
 
+        <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
+
         <div className="w-full">
           <div className="flex flex-row items-center gap-1">
             <TitleIcon style="w-6 h-6 fill-text-color"/>
@@ -73,6 +75,7 @@ export function EditListPage() {
             className={`w-full bg-accent p-2 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} 
             type="text" placeholder="List Title" 
             onChange={(e) => { setListTitle(e.target.value) }}
+            defaultValue={listTitle}
           />
         </div>
 
