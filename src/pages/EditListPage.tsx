@@ -124,10 +124,10 @@ export function EditListPage() {
         </div>
 
         <div className="flex flex-row gap-4 justify-end w-full">  
-          <Link to={"/"}>
+          <Link to={`/list/${listid}`}>
             <button className="p-2 font-semibold" type="reset">Discard</button>
           </Link>
-          <button className="p-2 font-semibold" type="submit">Create</button>
+          <button className="p-2 font-semibold" type="submit">Save</button>
         </div>
       </form>
     </main>
