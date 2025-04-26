@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useListStore } from "../stores/ListStore.tsx";
 import { tryGetIcon } from "../util/ListIconUtil.tsx";
 import { EditIcon, PlusIcon, SearchIcon, SortIcon } from "../util/Icons.tsx";
+import { ListItem } from "../components/ListItem.tsx";
 
 
 /**
@@ -52,7 +53,7 @@ export function ListItemsPage() {
         <div className="flex flex-row gap-2 w-full">
           <div className="flex flex-row items-center bg-accent p-1.5 rounded-lg w-full lg:w-full">
             <SearchIcon style={"w-6 h-6 fill-text-color"}/>
-            <input type="text" placeholder="Search" className="pl-1"/>
+            <input type="text" placeholder="Search" className="pl-1 w-full"/>
           </div>
 
           <button>
@@ -64,6 +65,12 @@ export function ListItemsPage() {
           <PlusIcon style="w-6 h-6 stroke-text-color"/>
           <h3>New Item</h3>
         </button>
+
+        {
+          Array.from({length: 12}, (_, index) =>
+            <ListItem/>
+          )
+        }
 
       </div>
     </main>
