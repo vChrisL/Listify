@@ -2,14 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import {DashboardPage} from "./pages/DashboardPage.tsx";
 import { NewListPage } from './pages/NewListPage.tsx';
-import { useListStore } from './stores/ListStore.tsx';
 import { ErrorPage } from './pages/ErrorPage.tsx';
 import { EditListPage } from './pages/EditListPage.tsx';
 import { ListItemsPage } from './pages/ListItemsPage.tsx';
 
 function App() {
-  const lists = useListStore(state => state.lists);
-
   return (
     <>
       <BrowserRouter>

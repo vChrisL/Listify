@@ -2,13 +2,12 @@ import { AnimatePresence } from "motion/react";
 import { Header } from "../components/Header.tsx";
 import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import { ImageIcon, PaintBucketIcon, TitleIcon} from "../util/Icons.tsx";
+import { ImageIcon, PaintBucketIcon, TitleIcon } from "../util/Icons.tsx";
 import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
 import { ReactNode, useState } from "react";
-import { ListObject } from "../types/ListType.tsx";
 import { useListStore } from "../stores/ListStore.tsx";
 import { isValidList } from "../util/Validation.tsx";
 

@@ -67,7 +67,7 @@ export function ListItemsPage() {
         </button>
 
         {
-          Array.from({length: 12}, (_, index) =>
+          Array.from({length: 12}, (_) =>
             <ListItem/>
           )
         }
