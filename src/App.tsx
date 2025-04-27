@@ -5,6 +5,7 @@ import { NewListPage } from './pages/NewListPage.tsx';
 import { ErrorPage } from './pages/ErrorPage.tsx';
 import { EditListPage } from './pages/EditListPage.tsx';
 import { ListItemsPage } from './pages/ListItemsPage.tsx';
+import { DeleteListPage } from './pages/DeleteListPage.tsx';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/list/:listid">
             <Route index element={<ListItemsPage/>}></Route>
             <Route path="edit" element={<EditListPage/>}/>
-            <Route path="delete" element={<div>Delete list</div>}/>
+            <Route path="delete" element={<DeleteListPage/>}/>
           </Route>
 
         </Routes>

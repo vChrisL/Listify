@@ -35,7 +35,7 @@ export function EditListPage() {
   const navigate = useNavigate();
   
   /**
-   * Handles new list form submission.
+   * Handles edit list form submission.
    * @param e Form event
    */
   function handleSubmit(e: React.FormEvent) {
@@ -132,11 +132,16 @@ export function EditListPage() {
           </div>
         </div>
 
-        <div className="flex flex-row gap-4 justify-end w-full">  
-          <Link to={`/list/${listid}`}>
-            <button className="p-2 font-semibold" type="reset">Discard</button>
+        <div className="flex flex-row gap-4 justify-between w-full">  
+          <Link to={`/list/${listid}/delete`}>
+            <button className="p-2 font-semibold text-red-400" type="reset">Delete List</button>
           </Link>
-          <button className="p-2 font-semibold" type="submit">Save</button>
+          <div>
+            <Link to={`/list/${listid}`}>
+              <button className="p-2 font-semibold" type="reset">Discard</button>
+            </Link>
+            <button className="p-2 font-semibold" type="submit">Save</button>
+          </div>
         </div>
       </form>
     </main>
