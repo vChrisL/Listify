@@ -5,11 +5,12 @@ import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { ImageIcon, PaintBucketIcon, TitleIcon } from "../util/Icons.tsx";
 import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
 import { ReactNode, useState } from "react";
 import { useListStore } from "../stores/ListStore.tsx";
 import { isValidList } from "../util/Validation.tsx";
+import { ListObject } from "../types/ListType.tsx";
 
 /**
  * Edit List Page.
@@ -23,13 +24,15 @@ export function EditListPage() {
   const list = useListStore(state => state.lists).find(obj => obj.id === listid)
   if(list === undefined) return <Navigate replace to="/*"/>;
 
+  const modifyList = useListStore(state => state.modifyList);
 
   const [listTitle, setListTitle] = useState<string>(list.name);
-  const [selectedIcon, setSelectedIcon] = useState<ReactNode>(list.icon);
+  const [selectedIcon, setSelectedIcon] = useState<string>(list.icon);
   const [selectedColor, setSelectedColor] = useState<string>(list.color);
 
   const [errors, setErrors] = useState<string[]>([]);
 
+  const navigate = useNavigate();
   
   /**
    * Handles new list form submission.
@@ -40,8 +43,15 @@ export function EditListPage() {
 
     if (!isValidList(listTitle, selectedIcon, selectedColor, setErrors)) return;
 
-    // modify list
-    // redirect user to the list's page on successful submission
+    let updatedList: ListObject = {
+      name: listTitle,
+      icon: selectedIcon,
+      color: selectedColor,
+      id: list?.id!
+    };
+
+    modifyList(list!, updatedList);
+    navigate(`/list/${updatedList.id}`);
   }
 
   return (
@@ -59,7 +69,7 @@ export function EditListPage() {
         onSubmit={(e) => { handleSubmit(e) }}
       >
         <div className="flex flex-row gap-2 items-center">
-          <h2>Editing {listTitle}</h2>
+          <h2>Editing {list.name}</h2>
         </div>
 
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
