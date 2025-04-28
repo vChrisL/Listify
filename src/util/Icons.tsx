@@ -155,6 +155,31 @@ export function CopyIcon({style}: IconProps) {
   )
 }
 
+/**
+ * Link icon.
+ * @param style Tailwind style classes to be applied. Uses fill for color.
+ */
+export function LinkIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="inherit" d="M11 17H7q-2.075 0-3.537-1.463T2 12t1.463-3.537T7 7h4v2H7q-1.25 0-2.125.875T4 12t.875 2.125T7 15h4zm-3-4v-2h8v2zm5 4v-2h4q1.25 0 2.125-.875T20 12t-.875-2.125T17 9h-4V7h4q2.075 0 3.538 1.463T22 12t-1.463 3.538T17 17z"></path>
+    </svg>
+  )
+}
+
+/**
+ * Description icon.
+ * @param style Tailwind style classes to be applied. Uses stroke for color.
+ */
+export function DescriptionIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="none" stroke="inherit" strokeLinecap="round" strokeWidth={1.5} d="M2.75 5.25h18.5M2.75 12h18.5m-18.5 6.75h13.5"></path>
+    </svg>
+  )
+}
+
+
 
 //////////////////////////// LIST ICONS BELOW ////////////////////////////
 

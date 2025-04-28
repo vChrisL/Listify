@@ -2,7 +2,7 @@ import { AnimatePresence } from "motion/react";
 import { Header } from "../components/Header.tsx";
 import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import { ImageIcon, PaintBucketIcon, TitleIcon } from "../util/Icons.tsx";
+import { DescriptionIcon, ImageIcon, LinkIcon, PaintBucketIcon, TitleIcon } from "../util/Icons.tsx";
 import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
@@ -82,7 +82,7 @@ export function NewListItemPage() {
 
         <div className="w-full">
           <div className="flex flex-row items-center gap-1">
-            <TitleIcon style="w-6 h-6 fill-text-color"/>
+            <LinkIcon style="w-6 h-6 fill-text-color"/>
             <h3>URL</h3>
           </div>
 
@@ -96,13 +96,12 @@ export function NewListItemPage() {
 
         <div className="w-full">
           <div className="flex flex-row items-center gap-1">
-            <TitleIcon style="w-6 h-6 fill-text-color"/>
+            <DescriptionIcon style="w-6 h-6 stroke-text-color"/>
             <h3>Description</h3>
           </div>
 
-          <input 
+          <textarea 
             className={`w-full bg-accent p-2 rounded-lg border-1 border-accent`} 
-            type="text" 
             placeholder="Item Description (Optional)" 
             onChange={(e) => { }}
           />
