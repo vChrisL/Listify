@@ -6,6 +6,7 @@ import { ErrorPage } from './pages/ErrorPage.tsx';
 import { EditListPage } from './pages/EditListPage.tsx';
 import { ListItemsPage } from './pages/ListItemsPage.tsx';
 import { DeleteListPage } from './pages/DeleteListPage.tsx';
+import { NewListItemPage } from './pages/NewListItemPage.tsx';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route index element={<ListItemsPage/>}></Route>
             <Route path="edit" element={<EditListPage/>}/>
             <Route path="delete" element={<DeleteListPage/>}/>
+
+            <Route path="new-item" element={<NewListItemPage/>}/>
           </Route>
 
         </Routes>

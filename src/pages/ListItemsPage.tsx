@@ -61,10 +61,12 @@ export function ListItemsPage() {
           </button>
         </div>
 
-        <button className="flex flex-row gap-2 items-center justify-center bg-accent rounded-lg w-full py-1.5">
-          <PlusIcon style="w-6 h-6 stroke-text-color"/>
-          <h3>New Item</h3>
-        </button>
+        <Link to={"new-item"} className="w-full">
+          <button className="flex flex-row gap-2 items-center justify-center bg-accent rounded-lg w-full py-1.5">
+            <PlusIcon style="w-6 h-6 stroke-text-color"/>
+            <h3>New Item</h3>
+          </button>
+        </Link>
 
         {
           Array.from({length: 12}, (_) =>
