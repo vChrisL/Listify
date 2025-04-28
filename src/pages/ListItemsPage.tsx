@@ -68,9 +68,14 @@ export function ListItemsPage() {
           </button>
         </Link>
 
-        {
+        {/* {
           Array.from({length: 12}, (_) =>
             <ListItem/>
+          )
+        } */}
+        {
+          list.items.map(item => 
+            <ListItem item={item}/>
           )
         }
 

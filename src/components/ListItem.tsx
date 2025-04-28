@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
 import { CopyIcon, EditIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
+import { ListItem as Item } from "../types/ListType";
 
 /**
  * List item component.
  */
-export function ListItem() {
+export function ListItem({item}: {item: Item}) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   const listItemRef = useRef(null);
@@ -18,20 +19,20 @@ export function ListItem() {
     {!isEditing &&
       <div className="bg-accent rounded-lg w-full p-4 text-left">
         <div className="flex flex-row items-center justify-between">
-          <h3 className="lg:text-xl text-wrap max-w-56 lg:max-w-full">List item title goes here List item title goes here List item title goes here</h3>
+          <h3 className="lg:text-xl text-wrap max-w-56 lg:max-w-full">{item.title}</h3>
           <button onClick={ () => setIsEditing(true) }>
             <EditIcon style="w-6 h-6 stroke-text-color"/>
           </button>
         </div>
 
         <div className="flex flex-row items-center gap-2 mb-2">
-          <p className="truncate">List item link goes here here here here</p>
+          <p className="truncate">{item.url}</p>
           <button>
             <CopyIcon style="w-4 h-4 stroke-text-color"/>
           </button>
         </div>
 
-        <p className="lg:text-lg">Optional list item description goes here Optional list item description goes here</p>
+        <p className="lg:text-lg">{item.desc}</p>
       </div>
     }
 

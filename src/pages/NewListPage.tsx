@@ -41,7 +41,8 @@ export function NewListPage() {
       name: listTitle,
       icon: selectedIcon,
       color: selectedColor,
-      id: nanoid()
+      id: nanoid(),
+      items: []
     };
 
     addList(newList);

@@ -8,7 +8,7 @@ import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
 import { useState } from "react";
-import { ListObject } from "../types/ListType.tsx";
+import { ListItem, ListObject } from "../types/ListType.tsx";
 import { useListStore } from "../stores/ListStore.tsx";
 import { isValidList } from "../util/Validation.tsx";
 import { nanoid } from "nanoid";
@@ -40,9 +40,24 @@ export function NewListItemPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    // validate if list item is valid (i.e. title not empty or null)
+    // validate if list item is valid (i.e. title not empty, null or undefined)
+    if(itemTitle === null || itemTitle === undefined || itemTitle.trim() === "") {
+      setErrors(["title"]);
+      return;
+    }
+
     // create new list item object
+    const newItem: ListItem = {
+      id: nanoid(),
+      title: itemTitle,
+      desc: itemDesc,
+      url: itemURL
+    };
+    
     // add list item
+    list!.items = [...list!.items, newItem];
+    
+    // update localStorage
     navigate(`/list/${list!.id}`)
   }
 
@@ -76,7 +91,7 @@ export function NewListItemPage() {
             className={`w-full bg-accent p-2 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} 
             type="text" 
             placeholder="Item Title" 
-            onChange={(e) => { }}
+            onChange={(e) => { setItemTitle(e.target.value) }}
           />
         </div>
 
@@ -90,7 +105,7 @@ export function NewListItemPage() {
             className={`w-full bg-accent p-2 rounded-lg border-1 border-accent`} 
             type="text" 
             placeholder="Item URL (Optional)" 
-            onChange={(e) => { }}
+            onChange={(e) => { setItemURL(e.target.value) }}
           />
         </div>
 
@@ -103,7 +118,7 @@ export function NewListItemPage() {
           <textarea 
             className={`w-full bg-accent p-2 rounded-lg border-1 border-accent`} 
             placeholder="Item Description (Optional)" 
-            onChange={(e) => { }}
+            onChange={(e) => { setItemDesc(e.target.value) }}
           />
         </div>
 

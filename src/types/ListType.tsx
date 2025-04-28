@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-type ListItem = {
+export type ListItem = {
   id:     string,
   title:  string,
   desc:   string,
-  url?:   string
+  url:   string
 };
 
 export type ListObject = {
@@ -12,5 +12,5 @@ export type ListObject = {
   icon:   string,
   id:     string,
   name:   string,
-  // items:  ListItem
+  items:  ListItem[]
 };
