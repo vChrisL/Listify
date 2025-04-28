@@ -37,7 +37,7 @@ export const useListStore = create<ListStore>(set => ({
       const targetIndex = newListState.findIndex(obj => obj.id === targetList.id);
       newListState.splice(targetIndex, 1);
 
-      // localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(newListState));
+      localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(newListState));
       return {lists: newListState};
     })
   }
