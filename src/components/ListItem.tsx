@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { CopyIcon, EditIcon } from "../util/Icons";
+import { CheckmarkIcon, CopyIcon, EditIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
 import { ListItem as Item } from "../types/ListType";
 import { useListStore } from "../stores/ListStore";
@@ -20,7 +20,8 @@ export function ListItem({item}: {item: Item}) {
   const [editedDesc, setEditedDesc] = useState<string>(item.desc);
   
   const [errors, setErrors] = useState<string[]>([]);
-  
+  const [hasCopied, setHasCopied] = useState<boolean>(false);
+
   const updateLocalStorage = useListStore(state => state.updateLocalStorage);
 
   /**
@@ -59,8 +60,15 @@ export function ListItem({item}: {item: Item}) {
         <div className="flex flex-row items-center gap-2 mb-2">
           <p className="truncate">{item.url}</p>
           {item.url !== "" &&
-            <button>
-              <CopyIcon style="w-4 h-4 stroke-text-color"/>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(item.url);
+                setHasCopied(true);
+                setTimeout(()=>{ setHasCopied(false) }, 1000)
+              }}
+            >
+              {hasCopied && <CheckmarkIcon style="w-4 h-4 fill-green-400"/>}
+              {!hasCopied && <CopyIcon style="w-4 h-4 stroke-text-color"/>}
             </button>
           }
         </div>
