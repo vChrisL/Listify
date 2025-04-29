@@ -47,7 +47,8 @@ export function EditListPage() {
       name: listTitle,
       icon: selectedIcon,
       color: selectedColor,
-      id: list?.id!
+      id: list?.id!,
+      items: list!.items
     };
 
     modifyList(list!, updatedList);
