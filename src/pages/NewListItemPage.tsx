@@ -32,6 +32,7 @@ export function NewListItemPage() {
   const [errors, setErrors] = useState<string[]>([]);
 
   const navigate = useNavigate();
+  const updateLocalStorage = useListStore(state => state.updateLocalStorage);
 
   /**
    * Handles new list item form submission.
@@ -56,8 +57,8 @@ export function NewListItemPage() {
     
     // add list item
     list!.items = [...list!.items, newItem];
-    
-    // update localStorage
+
+    updateLocalStorage();
     navigate(`/list/${list!.id}`)
   }
 
