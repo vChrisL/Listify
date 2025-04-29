@@ -27,9 +27,11 @@ export function ListItem({item}: {item: Item}) {
 
         <div className="flex flex-row items-center gap-2 mb-2">
           <p className="truncate">{item.url}</p>
-          <button>
-            <CopyIcon style="w-4 h-4 stroke-text-color"/>
-          </button>
+          {item.url !== "" &&
+            <button>
+              <CopyIcon style="w-4 h-4 stroke-text-color"/>
+            </button>
+          }
         </div>
 
         <p className="lg:text-lg">{item.desc}</p>
