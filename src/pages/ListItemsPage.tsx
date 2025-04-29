@@ -75,7 +75,7 @@ export function ListItemsPage() {
         } */}
         {
           list.items.map(item => 
-            <ListItem item={item}/>
+            <ListItem key={item.id} item={item}/>
           )
         }
 
