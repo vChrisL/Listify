@@ -46,11 +46,6 @@ export function DashboardPage() {
             </button>
           </Link>
 
-          {/* {
-            Array.from({length: 12}, (_, index) =>
-              <ListCard listObj={{name: `List ${index} Name Goes Here`, color: tryGetColor("blue"), icon: <DashboardIcon style="w-12 h-12 stroke-text-color"/>, id:index}}/>
-            )
-          } */}
           {
             lists.map((list, index) => 
               <ListCard key={index} listObj={list}/>

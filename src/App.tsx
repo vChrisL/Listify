@@ -29,8 +29,6 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-
-      {/* <DashboardPage></DashboardPage> */}
     </>
   )
 }

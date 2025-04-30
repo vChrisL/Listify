@@ -4,7 +4,6 @@ import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useListStore } from "../stores/ListStore.tsx";
-import { useState } from "react";
 
 /**
  * Delete List Page.
