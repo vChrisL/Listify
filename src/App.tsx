@@ -7,6 +7,7 @@ import { EditListPage } from './pages/EditListPage.tsx';
 import { ListItemsPage } from './pages/ListItemsPage.tsx';
 import { DeleteListPage } from './pages/DeleteListPage.tsx';
 import { NewListItemPage } from './pages/NewListItemPage.tsx';
+import { DeleteListItemPage } from './pages/DeleteListItemPage.tsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="delete" element={<DeleteListPage/>}/>
 
             <Route path="new-item" element={<NewListItemPage/>}/>
+            <Route path="item/:itemid/delete" element={<DeleteListItemPage/>}/>
           </Route>
 
         </Routes>

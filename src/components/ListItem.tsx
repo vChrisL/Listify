@@ -3,6 +3,7 @@ import { CheckmarkIcon, CopyIcon, EditIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
 import { ListItem as Item } from "../types/ListType";
 import { useListStore } from "../stores/ListStore";
+import { Link } from "react-router-dom";
 
 /**
  * List item component.
@@ -105,7 +106,9 @@ export function ListItem({item}: {item: Item}) {
         />
       
         <div className="flex flex-row justify-between font-semibold">
-          <button className="text-red-400">Delete Item</button>
+          <Link to={`item/${item.id}/delete`}>
+            <button className="text-red-400">Delete Item</button>
+          </Link>
 
           <div className="flex flex-row gap-4 justify-between">
             <button 
