@@ -7,7 +7,7 @@ import { ColorMap } from "../util/ColorUtil.tsx";
 import { ListIcons } from "../util/ListIconUtil.tsx";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { Swatch } from "../components/Swatch.tsx";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { useListStore } from "../stores/ListStore.tsx";
 import { isValidList } from "../util/Validation.tsx";
 import { ListObject } from "../types/ListType.tsx";

@@ -2,15 +2,11 @@ import { AnimatePresence } from "motion/react";
 import { Header } from "../components/Header.tsx";
 import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
-import { DescriptionIcon, ImageIcon, LinkIcon, PaintBucketIcon, TitleIcon } from "../util/Icons.tsx";
-import { ColorMap } from "../util/ColorUtil.tsx";
-import { ListIcons } from "../util/ListIconUtil.tsx";
+import { DescriptionIcon, LinkIcon, TitleIcon } from "../util/Icons.tsx";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { Swatch } from "../components/Swatch.tsx";
 import { useState } from "react";
-import { ListItem, ListObject } from "../types/ListType.tsx";
+import { ListItem } from "../types/ListType.tsx";
 import { useListStore } from "../stores/ListStore.tsx";
-import { isValidList } from "../util/Validation.tsx";
 import { nanoid } from "nanoid";
 
 /**
@@ -22,7 +18,7 @@ export function NewListItemPage() {
   const {listid} = useParams();
   if (listid === undefined) return <Navigate replace to="*"/>;
   
-  const list = useListStore(state => state.lists).find(obj => obj.id === listid)
+  const list = useListStore(state => state.lists).find(obj => obj.id === listid);
   if(list === undefined) return <Navigate replace to="/*"/>;
 
   const [itemTitle, setItemTitle] = useState<string>("");

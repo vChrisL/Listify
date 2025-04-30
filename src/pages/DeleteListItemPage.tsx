@@ -14,7 +14,7 @@ export function DeleteListItemPage() {
   const {listid} = useParams();
   if (listid === undefined) return <Navigate replace to="*"/>;
   
-  const list = useListStore(state => state.lists).find(obj => obj.id === listid)
+  const list = useListStore(state => state.lists).find(obj => obj.id === listid);
   if(list === undefined) return <Navigate replace to="/*"/>;
 
   const {itemid} = useParams();

@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type ListItem = {
   id:     string,
   title:  string,
