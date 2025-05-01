@@ -44,7 +44,7 @@ export function EditListPage() {
     if (!isValidList(listTitle, selectedIcon, selectedColor, setErrors)) return;
 
     let updatedList: ListObject = {
-      name: listTitle,
+      name: listTitle.trim(),
       icon: selectedIcon,
       color: selectedColor,
       id: list?.id!,

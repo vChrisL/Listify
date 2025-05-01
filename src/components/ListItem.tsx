@@ -39,9 +39,9 @@ export function ListItem({item}: {item: Item}) {
     }
     
     // modify list item properties
-    item.title = editedTitle;
-    item.url = editedURL;
-    item.desc = editedDesc;
+    item.title = editedTitle.trim();
+    item.url = editedURL.trim();
+    item.desc = editedDesc.trim();
     
     updateLocalStorage();
     setIsEditing(false);

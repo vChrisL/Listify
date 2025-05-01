@@ -38,7 +38,7 @@ export function NewListPage() {
     if (!isValidList(listTitle, selectedIcon, selectedColor, setErrors)) return;
 
     let newList: ListObject = {
-      name: listTitle,
+      name: listTitle.trim(),
       icon: selectedIcon,
       color: selectedColor,
       id: nanoid(),

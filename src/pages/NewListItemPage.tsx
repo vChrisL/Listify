@@ -46,9 +46,9 @@ export function NewListItemPage() {
     // create new list item object
     const newItem: ListItem = {
       id: nanoid(),
-      title: itemTitle,
-      desc: itemDesc,
-      url: itemURL
+      title: itemTitle.trim(),
+      desc: itemDesc.trim(),
+      url: itemURL.trim()
     };
     
     // add list item
