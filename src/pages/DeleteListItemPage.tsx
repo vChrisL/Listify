@@ -57,7 +57,7 @@ export function DeleteListItemPage() {
         <h1 className="text-center mx-auto mt-24">Are you sure you wish to delete the item <span className="text-red-400">{item.title}</span>?</h1>
 
         <div className="flex flex-row gap-4 font-semibold mx-auto">
-          <Link replace to={`/list/${list.id}/edit`}>
+          <Link replace to={`/list/${list.id}`}>
             <button type="button">Cancel</button>
           </Link>
           <button type="submit">Confirm</button>
