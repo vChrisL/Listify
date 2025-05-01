@@ -12,7 +12,7 @@ export function isValidList(listTitle: string, selectedIcon: ReactNode, selected
   let tmpErrors = [];
 
   if (listTitle.trim() === "" || listTitle.trim() === null || listTitle.trim() === undefined) tmpErrors.push("title");
-  if (listTitle.trim() === "" || selectedIcon === null || selectedIcon === undefined) tmpErrors.push("icon");
+  if (selectedIcon === "" || selectedIcon === null || selectedIcon === undefined) tmpErrors.push("icon");
   if (selectedColor === "" || selectedColor === null || selectedColor === undefined) tmpErrors.push("color");
 
   setErrors(tmpErrors);
