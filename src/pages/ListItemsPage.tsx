@@ -3,7 +3,7 @@ import { Header } from "../components/Header.tsx";
 import { DesktopSidebar, Sidebar } from "../components/Sidebar.tsx";
 import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useListStore } from "../stores/ListStore.tsx";
 import { tryGetIcon } from "../util/ListIconUtil.tsx";
 import { EditIcon, PlusIcon, SearchIcon, SortIcon } from "../util/Icons.tsx";
@@ -21,9 +21,12 @@ export function ListItemsPage() {
   
   const list = useListStore(state => state.lists).find(obj => obj.id === listid);
   if(list === undefined) return <Navigate replace to="/*"/>;
+  
+  const [listTitle, setListTitle] = useState<string>(list.name);
 
-
-  const [listTitle] = useState<string>(list.name);
+  useEffect(() => {
+    setListTitle(list.name);
+  }, [listid])
 
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>

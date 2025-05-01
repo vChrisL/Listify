@@ -6,12 +6,14 @@ import { ListShortcut } from "./List";
 import { tryGetColor } from "../util/ColorUtil.tsx";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { useListStore } from "../stores/ListStore.tsx";
 
 /**
  * Mobile sidebar component.
  */
 export function Sidebar() {
   const setDisplaySidebar = useSidebarStore(state => state.setIsDisplayed);
+  const lists = useListStore(state => state.lists);
 
   const sidebarRef = useRef(null);
   useOnClickOutside(sidebarRef, (): void => {
@@ -45,9 +47,11 @@ export function Sidebar() {
         </Link>
         
         <div className="flex flex-col gap-2">
-          <ListShortcut listObj={{name: "List 1",                     color: tryGetColor("blue"),   icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-          <ListShortcut listObj={{name: "My Second List",             color: tryGetColor("red"),    icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-          <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple"), icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
+          {
+            lists.map((list) => 
+              <ListShortcut key={list.id} listObj={list}/>
+            )
+          }
         </div>
         
       </div>
@@ -59,6 +63,8 @@ export function Sidebar() {
  * Desktop sidebar component.
  */
 export function DesktopSidebar() {
+  const lists = useListStore(state => state.lists);
+
   return (
     <aside className="hidden lg:flex flex-col items-center gap-4 w-1/6 p-4 pr-0">
       <div className={"flex flex-row justify-center items-center gap-2"}>
@@ -75,9 +81,11 @@ export function DesktopSidebar() {
         </Link>
         
         <div className="flex flex-col gap-2">
-          <ListShortcut listObj={{name: "List 1",                     color: tryGetColor("blue"),   icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-          <ListShortcut listObj={{name: "My Second List",             color: tryGetColor("red"),    icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
-          <ListShortcut listObj={{name: "Another Second Second List", color: tryGetColor("purple"), icon: <DashboardIcon style="w-8 h-8 min-w-8  stroke-text-color"/>}}/>
+          {
+            lists.map((list) => 
+              <ListShortcut key={list.id} listObj={list}/>
+            )
+          }
         </div>
       </div>
     </aside>
