@@ -129,6 +129,30 @@ export function SortIcon({style}: IconProps) {
 }
 
 /**
+ * Sort Ascending icon.
+ * @param style Tailwind style classes to be applied. Uses fill for color.
+ */
+export function SortAscIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="inherit" d="m7.293 8.293l3.995-4a1 1 0 0 1 1.32-.084l.094.083l4.006 4a1 1 0 0 1-1.32 1.499l-.094-.083l-2.293-2.291v11.584a1 1 0 0 1-.883.993L12 20a1 1 0 0 1-.993-.884L11 19.001V7.41L8.707 9.707a1 1 0 0 1-1.32.084l-.094-.084a1 1 0 0 1-.084-1.32zl3.995-4z"></path>
+    </svg>
+  )
+}
+
+/**
+ * Sort Descending icon.
+ * @param style Tailwind style classes to be applied. Uses fill for color.
+ */
+export function SortDescIcon({style}: IconProps) {
+  return (
+    <svg className={style} xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
+      <path fill="inherit" d="M11.883 4.01L12 4.005a1 1 0 0 1 .993.883l.007.117v11.584l2.293-2.294a1 1 0 0 1 1.32-.084l.094.083a1 1 0 0 1 .084 1.32l-.084.095l-3.996 4a1 1 0 0 1-1.32.083l-.094-.083l-4.004-4a1 1 0 0 1 1.32-1.498l.094.083L11 16.583V5.004a1 1 0 0 1 .883-.992L12 4.004z"></path>
+    </svg>
+  )
+}
+
+/**
  * Plus icon.
  * @param style Tailwind style classes to be applied. Uses stroke for color.
  */

@@ -6,10 +6,15 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useListStore } from "../stores/ListStore.tsx";
 import { tryGetIcon } from "../util/ListIconUtil.tsx";
-import { EditIcon, PlusIcon, SearchIcon, SortIcon } from "../util/Icons.tsx";
+import { EditIcon, PlusIcon, SearchIcon, SortAscIcon, SortDescIcon, SortIcon } from "../util/Icons.tsx";
 import { ListItem } from "../components/ListItem.tsx";
 import { ListItem as ListItemType } from "../types/ListType.tsx";
 
+enum SortEnum {
+  none,
+  asc,
+  desc
+}
 
 /**
  * List Items Page.
@@ -33,12 +38,24 @@ export function ListItemsPage() {
 
   const [filteredListItems, setFilteredListItems] = useState<ListItemType[]>([...list.items]);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [sort, setSort] = useState<SortEnum>(SortEnum.none);
 
-  // Handles searching List Items
+  // Handles searching and sorting List Items
   useEffect(() => {
-    const tmpFilteredList = list.items.filter(list => list.title.toLowerCase().startsWith(searchInput.trim().toLowerCase()));
-    setFilteredListItems(tmpFilteredList);
-  }, [searchInput]);
+    const tmpFilteredListItems = list.items.filter(list => list.title.toLowerCase().startsWith(searchInput.trim().toLowerCase()));
+
+    switch(sort) {
+      case SortEnum.asc:
+        tmpFilteredListItems.sort((a, b) => a.title < b.title ? -1 : 1);
+        break;
+      case SortEnum.desc:
+        tmpFilteredListItems.sort((a, b) => a.title > b.title ? -1 : 1);
+        break;
+    }
+
+    setFilteredListItems(tmpFilteredListItems);
+  }, [searchInput, sort]);
+
 
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
@@ -71,8 +88,16 @@ export function ListItemsPage() {
             <input type="text" placeholder="Search" className="pl-1 w-full" onChange={(e) => setSearchInput(e.target.value)}/>
           </div>
 
-          <button>
-            <SortIcon style="w-6 h-6 stroke-text-color"/>
+          <button 
+            onClick={() => {
+              const s = sort as number;
+              if (s + 1 > 2) setSort(0 as SortEnum);
+              else setSort(s + 1 as SortEnum);
+            }}
+          >
+            {sort === SortEnum.none && <SortIcon style="w-6 h-6 stroke-text-color"/>}
+            {sort === SortEnum.asc && <SortAscIcon style="w-6 h-6 fill-text-color"/>}
+            {sort === SortEnum.desc && <SortDescIcon style="w-6 h-6 fill-text-color"/>}
           </button>
         </div>
 
