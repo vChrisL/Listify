@@ -8,6 +8,7 @@ import { useListStore } from "../stores/ListStore.tsx";
 import { tryGetIcon } from "../util/ListIconUtil.tsx";
 import { EditIcon, PlusIcon, SearchIcon, SortIcon } from "../util/Icons.tsx";
 import { ListItem } from "../components/ListItem.tsx";
+import { ListItem as ListItemType } from "../types/ListType.tsx";
 
 
 /**
@@ -24,9 +25,20 @@ export function ListItemsPage() {
   
   const [listTitle, setListTitle] = useState<string>(list.name);
 
+  // Update list title and items when listid changes
   useEffect(() => {
+    setFilteredListItems([...list.items]);
     setListTitle(list.name);
   }, [listid])
+
+  const [filteredListItems, setFilteredListItems] = useState<ListItemType[]>([...list.items]);
+  const [searchInput, setSearchInput] = useState<string>("");
+
+  // Handles searching List Items
+  useEffect(() => {
+    const tmpFilteredList = list.items.filter(list => list.title.toLowerCase().startsWith(searchInput.trim().toLowerCase()));
+    setFilteredListItems(tmpFilteredList);
+  }, [searchInput]);
 
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
@@ -56,7 +68,7 @@ export function ListItemsPage() {
         <div className="flex flex-row gap-2 w-full">
           <div className="flex flex-row items-center bg-accent p-1.5 rounded-lg w-full lg:w-full">
             <SearchIcon style={"w-6 h-6 fill-text-color"}/>
-            <input type="text" placeholder="Search" className="pl-1 w-full"/>
+            <input type="text" placeholder="Search" className="pl-1 w-full" onChange={(e) => setSearchInput(e.target.value)}/>
           </div>
 
           <button>
@@ -72,7 +84,7 @@ export function ListItemsPage() {
         </Link>
 
         {
-          list.items.map(item => 
+          filteredListItems.map(item => 
             <ListItem key={item.id} item={item}/>
           )
         }

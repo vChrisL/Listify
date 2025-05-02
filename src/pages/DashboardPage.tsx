@@ -6,6 +6,8 @@ import { useSidebarStore } from "../stores/MenuStore.tsx";
 import { AddIcon, DashboardIcon, SearchIcon } from "../util/Icons.tsx";
 import { Link } from "react-router-dom";
 import { useListStore } from "../stores/ListStore.tsx";
+import { useEffect, useState } from "react";
+import { ListObject } from "../types/ListType.tsx";
 
 /**
  * Dashboard page.
@@ -13,6 +15,15 @@ import { useListStore } from "../stores/ListStore.tsx";
 export function DashboardPage() {
   const isDisplaySidebar = useSidebarStore(state => state.isDisplayed);
   const lists = useListStore(state => state.lists);
+  const [filteredLists, setFilteredLists] = useState<ListObject[]>([...lists]);
+
+  const [searchInput, setSearchInput] = useState<string>("");
+
+  // Handle searching through lists
+  useEffect(() => {
+    const tmpFilteredList = lists.filter(list => list.name.toLowerCase().startsWith(searchInput.trim().toLowerCase()));
+    setFilteredLists(tmpFilteredList);
+  }, [searchInput]);
   
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
@@ -33,7 +44,7 @@ export function DashboardPage() {
 
           <div className="flex flex-row items-center bg-accent p-1.5 rounded-lg w-full lg:w-fit">
             <SearchIcon style={"w-6 h-6 fill-text-color"}/>
-            <input type="text" placeholder="Search" className="pl-1"/>
+            <input type="text" placeholder="Search" className="pl-1" onChange={(e) => setSearchInput(e.target.value)}/>
           </div>
         </div>
         <hr className="hidden lg:block bg-accent w-full border-none h-0.5"/>
@@ -47,7 +58,7 @@ export function DashboardPage() {
           </Link>
 
           {
-            lists.map((list, index) => 
+            filteredLists.map((list, index) => 
               <ListCard key={index} listObj={list}/>
             )
           }
