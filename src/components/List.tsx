@@ -13,7 +13,9 @@ export function ListShortcut({listObj}: {listObj: ListObject}) {
   return (
     <Link to={`/list/${listObj.id}`} onClick={() => setDisplaySidebar(false)}>
       <button className="flex flex-row gap-2 items-center w-full rounded-lg p-2" style={{backgroundColor: tryGetColor(listObj.color)}}>
-        {tryGetIcon(listObj.icon)}
+        <div>
+          {tryGetIcon(listObj.icon)}
+        </div>
         <h3 className="grow text-left truncate">{listObj.name}</h3>
       </button>
     </Link>
