@@ -8,7 +8,9 @@ type ListStore = {
   addList: (newList: ListObject) => void,
   modifyList: (targetList: ListObject, updatedList: ListObject) => void,
   deleteList: (targetList: ListObject) => void,
-  updateLocalStorage: () => void
+  updateLocalStorage: () => void,
+
+  loadLists: (importedLists: ListObject[]) => void
 }
 
 export const useListStore = create<ListStore>(set => ({
@@ -48,6 +50,13 @@ export const useListStore = create<ListStore>(set => ({
 
       localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(state.lists));
       return {lists: state.lists}
+    })
+  },
+
+  loadLists: (importedLists: ListObject[]) => {
+    set(() => {
+      localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(importedLists));
+      return {lists: importedLists}
     })
   }
 }))

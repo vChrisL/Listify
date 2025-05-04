@@ -23,7 +23,7 @@ export function DashboardPage() {
   useEffect(() => {
     const tmpFilteredList = lists.filter(list => list.name.toLowerCase().startsWith(searchInput.trim().toLowerCase()));
     setFilteredLists(tmpFilteredList);
-  }, [searchInput]);
+  }, [searchInput, lists]);
   
   return (
     <main className={"flex flex-col gap-4 h-full overflow-hidden lg:flex-row"}>
