@@ -77,6 +77,18 @@ export function Sidebar() {
 export function DesktopSidebar() {
   const lists = useListStore(state => state.lists);
 
+  /**
+   * Handles exporting lists as a JSON file.
+   * @returns Returns string containing the jsonFile object URL
+   */
+  function exportLists() {
+    const listsString = JSON.stringify(lists);
+    const data = new Blob([listsString], {type: "application/JSON"});
+    const jsonFile = window.URL.createObjectURL(data);
+
+    return jsonFile;
+  }
+
   return (
     <aside className="hidden lg:flex flex-col items-center justify-between gap-4 w-1/6 p-4 pr-0">
       <div className="flex flex-col items-center gap-4 w-full">
@@ -104,10 +116,11 @@ export function DesktopSidebar() {
       </div>
 
       <div className="flex flex-row justify-between gap-8">
-        <button className="flex flex-row gap-2">
+        <a href={exportLists()} download={"listify-mylists"} className="flex flex-row gap-2">
           <ExportIcon style="w-6 h-6 fill-text-color"/>
           <h3>Export</h3>
-        </button>
+        </a>
+
         <button className="flex flex-row gap-2">
           <ImportIcon style="w-6 h-6 fill-text-color"/>
           <h3>Import</h3>
