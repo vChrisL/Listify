@@ -3,11 +3,9 @@ import { useSidebarStore } from "../stores/MenuStore";
 import { BookIcon, DashboardIcon, ExportIcon, ImportIcon } from "../util/Icons";
 import { useOnClickOutside } from "../util/OnClickOutsideHook";
 import { ListShortcut } from "./List";
-import { tryGetColor } from "../util/ColorUtil.tsx";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { useListStore } from "../stores/ListStore.tsx";
-import { ListObject } from "../types/ListType.tsx";
 
 /**
  * Mobile sidebar component.
@@ -81,7 +79,7 @@ export function DesktopSidebar() {
       fileStr = fileReader.result?.toString();
 
       let listData;
-      
+
       try {
         listData = JSON.parse(fileStr ?? "");
       } catch (err) {
