@@ -69,20 +69,15 @@ export function DesktopSidebar() {
 
   const [importedFile, setImportedFile] = useState<FileList>();
 
+  // Handles importing list data
   useEffect(() => {
-    if(importedFile === undefined) return;
-    if (!importedFile[0].type.startsWith("application/json")) return;
-    
-    console.log("parse and load data");
-    console.log(importedFile[0]);
+    if (importedFile === undefined || !importedFile[0].type.startsWith("application/json")) return;
     
     let fileStr;
     const fileReader = new FileReader();
     fileReader.addEventListener("load", () => {
       fileStr = fileReader.result?.toString();
-      const listData = JSON.parse(fileStr ?? "");
-      console.log(listData);
-      loadLists(listData);
+      loadLists(JSON.parse(fileStr ?? ""));
     })
 
     if(importedFile[0]) {
