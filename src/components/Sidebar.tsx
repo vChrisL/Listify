@@ -7,6 +7,7 @@ import { tryGetColor } from "../util/ColorUtil.tsx";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { useListStore } from "../stores/ListStore.tsx";
+import { ListObject } from "../types/ListType.tsx";
 
 /**
  * Mobile sidebar component.
@@ -74,10 +75,27 @@ export function DesktopSidebar() {
     if (importedFile === undefined || !importedFile[0].type.startsWith("application/json")) return;
     
     let fileStr;
+
     const fileReader = new FileReader();
     fileReader.addEventListener("load", () => {
       fileStr = fileReader.result?.toString();
-      loadLists(JSON.parse(fileStr ?? ""));
+
+      let listData;
+      
+      try {
+        listData = JSON.parse(fileStr ?? "");
+      } catch (err) {
+        return;
+      }
+
+      for(let i = 0; i < 3; i++) {
+        const rngIndex = Math.floor(Math.random() * listData.length);
+        const item = listData[rngIndex];
+
+        if(!("id" in item && "name" in item && "color" in item && "icon" in item && "items" in item)) return;
+      }
+
+      loadLists(listData);
     })
 
     if(importedFile[0]) {
