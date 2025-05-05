@@ -37,7 +37,7 @@ export function Sidebar() {
         <h1>Listify</h1>
       </div>
 
-      <div className="w-full">
+      <div className="w-full max-h-[90%]">
         <Link to={"/"}>
           <button className="flex flex-row gap-2 items-center justify-center w-full bg-secondary-accent rounded-lg p-2 mb-8" onClick={() => {setDisplaySidebar(false)}}>
             <DashboardIcon style="w-8 h-8 stroke-text-color"/>
@@ -45,7 +45,7 @@ export function Sidebar() {
           </button>
         </Link>
         
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 overflow-y-auto max-h-[90%]">
           {
             lists.map((list) => 
               <ListShortcut key={list.id} listObj={list}/>
@@ -128,7 +128,7 @@ export function DesktopSidebar() {
 
   return (
     <aside className="hidden lg:flex flex-col items-center justify-between gap-4 w-1/6 p-4 pr-0">
-      <div className="flex flex-col items-center gap-4 w-full">
+      <div className="flex flex-col items-center gap-4 w-full max-h-4/5">
         <div className={"flex flex-row justify-center items-center gap-2"}>
           <BookIcon style={"w-10 h-10 stroke-text-color"}/>
           <h1>Listify</h1>
@@ -142,7 +142,7 @@ export function DesktopSidebar() {
             </button>
           </Link>
           
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 overflow-y-auto max-h-4/5">
             {
               lists.map((list) => 
                 <ListShortcut key={list.id} listObj={list}/>
