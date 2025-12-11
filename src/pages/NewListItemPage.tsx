@@ -85,7 +85,7 @@ export function NewListItemPage() {
           </div>
 
           <input 
-            className={`w-full bg-accent p-2 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} 
+            className={`w-full bg-accent p-2 mt-1 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} 
             type="text" 
             placeholder="Item Title" 
             onChange={(e) => { setItemTitle(e.target.value) }}
@@ -99,7 +99,7 @@ export function NewListItemPage() {
           </div>
 
           <input 
-            className={`w-full bg-accent p-2 rounded-lg border-1 border-accent`} 
+            className={`w-full bg-accent p-2 mt-1 rounded-lg border-1 border-accent`} 
             type="text" 
             placeholder="Item URL (Optional)" 
             onChange={(e) => { setItemURL(e.target.value) }}
@@ -113,7 +113,7 @@ export function NewListItemPage() {
           </div>
 
           <textarea 
-            className={`w-full bg-accent p-2 rounded-lg border-1 border-accent`} 
+            className={`w-full bg-accent p-2 mt-1 rounded-lg border-1 border-accent`} 
             placeholder="Item Description (Optional)" 
             onChange={(e) => { setItemDesc(e.target.value) }}
           />

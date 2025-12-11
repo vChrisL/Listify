@@ -76,7 +76,7 @@ export function NewListPage() {
           </div>
 
           <input 
-            className={`w-full bg-accent p-2 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} 
+            className={`w-full bg-accent p-2 mt-1 rounded-lg border-1 border-accent ${errors.includes("title") ? 'border-red-400' : ''}`} 
             type="text" placeholder="List Title" 
             onChange={(e) => { setListTitle(e.target.value) }}
           />
@@ -88,7 +88,7 @@ export function NewListPage() {
             <h3>Icon</h3>
           </div>
 
-          <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg border-1 border-accent ${errors.includes("icon") ? 'border-red-400' : ''}`}>
+          <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 mt-1 rounded-lg border-1 border-accent ${errors.includes("icon") ? 'border-red-400' : ''}`}>
             {
               Array.from(ListIcons.entries()).map(([k, v]) =>
                 <Swatch 
@@ -110,7 +110,7 @@ export function NewListPage() {
             <h3>Color</h3>
           </div>
 
-          <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 rounded-lg border-1 border-accent ${errors.includes("color") ? 'border-red-400' : ''}`}>
+          <div className={`flex flex-row flex-wrap gap-2 bg-accent p-4 mt-1 rounded-lg border-1 border-accent ${errors.includes("color") ? 'border-red-400' : ''}`}>
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
                 <Swatch 
