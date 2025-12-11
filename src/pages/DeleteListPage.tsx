@@ -16,16 +16,18 @@ export function DeleteListPage() {
   
   const {listid} = useParams();
   
-  const listList = useListStore(state => state.lists)
+  const fullList = useListStore(state => state.lists);
   const [list, setList] = useState<ListObject>();
   
   const deleteList = useListStore(state => state.deleteList);
   
   useEffect(() => {
-    const list = listList.find(obj => obj.id === listid);
+    const list = fullList.find(obj => obj.id === listid);
     
-    if (list === undefined || listid === undefined)
+    if (list === undefined || listid === undefined) {
       navigate("/");
+      return;
+    }
     
     setList(list);
   }, []);
