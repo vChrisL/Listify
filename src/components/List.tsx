@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { ListObject } from "../types/ListType"
-import { tryGetIcon } from "../util/ListIconUtil"
+import { tryGetIcon, tryGetSwatchIcon } from "../util/ListIconUtil"
 import { tryGetColor } from "../util/ColorUtil"
 import { useSidebarStore } from "../stores/MenuStore"
 
@@ -14,7 +14,7 @@ export function ListShortcut({listObj}: {listObj: ListObject}) {
     <Link to={`/list/${listObj.id}`} onClick={() => setDisplaySidebar(false)}>
       <button className="flex flex-row gap-2 items-center w-full rounded-lg p-2" style={{backgroundColor: tryGetColor(listObj.color)}}>
         <div>
-          {tryGetIcon(listObj.icon)}
+          {tryGetSwatchIcon(listObj.icon)}
         </div>
         <h3 className="grow text-left truncate">{listObj.name}</h3>
       </button>

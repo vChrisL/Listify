@@ -80,3 +80,12 @@ export const ListIcons: Map<string, IconType> = new Map([
 export function tryGetIcon(name: string) {
   return ListIcons.get(name)?.listIcon ?? <></>
 }
+
+/**
+ * Get Icon Swatch Component based upon it's name.
+ * @param name The icon name
+ * @returns Returns the corresponding Icon Swatch element
+ */
+export function tryGetSwatchIcon(name: string) {
+  return ListIcons.get(name)?.swatchIcon ?? <></>
+}
