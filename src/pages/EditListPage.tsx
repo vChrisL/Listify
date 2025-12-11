@@ -100,7 +100,7 @@ export function EditListPage() {
               Array.from(ListIcons.entries()).map(([k, v]) =>
                 <Swatch 
                   key={k} 
-                  style="bg-background p-1 rounded-lg border-2 lg:p-0.5" 
+                  style="bg-background p-1 rounded-full lg:p-0.5" 
                   selected={selectedIcon == k ? true : false} 
                   onClickEvt={() => setSelectedIcon(k)}
                 >
@@ -121,7 +121,7 @@ export function EditListPage() {
             {
               Array.from(ColorMap.entries()).map(([k, v]) =>
                 <Swatch 
-                  key={k} style="p-1 rounded-lg border-2 lg:p-0.5" 
+                  key={k} style="p-1 rounded-full lg:p-0.5" 
                   bgColor={v} 
                   selected={selectedColor == k ? true : false} 
                   onClickEvt={() => setSelectedColor(k)}

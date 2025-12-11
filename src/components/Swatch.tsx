@@ -10,7 +10,7 @@ type SwatchProps = {
 
 export function Swatch({children, style, bgColor, selected, onClickEvt}: SwatchProps) {  
   return (
-    <button type="button" onClick={onClickEvt} className={`${style} ${selected ? 'border-green-300' : 'border-transparent'}`} style={{backgroundColor: bgColor}}>
+    <button type="button" onClick={onClickEvt} className={`${style} ${selected ? 'outline-green-400' : 'outline-transparent'} outline-2 outline-offset-2`} style={{backgroundColor: bgColor}}>
       {children}
     </button>
   )
